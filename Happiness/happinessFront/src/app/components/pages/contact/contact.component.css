@@ -1,0 +1,214 @@
+
+
+* {
+    margin: 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  main {
+    
+    padding:7vh 5vw ;
+    background-color: white;
+   
+  }
+  @media screen and (max-width: 800px){
+    
+    
+    .locaux {
+        width: 100%;
+        /* background-color: rgba(153, 153, 153, 0.401); */
+        background-color:RGB(186, 210, 176);
+        border-radius: 10px;
+        box-shadow: 1px 1px 10px black;
+        margin: 0px auto;
+      }
+
+
+    h1{
+        padding-top: 15px;
+        padding-bottom: 15px;
+        text-align:center
+
+    }
+    .texte{
+        width: 100%;
+        text-align: center;
+        
+    }
+    .plan iframe{
+       
+        width: 100%;
+        border-radius: 25px;
+        padding: 15px;
+    }
+    
+    .contacter {
+        width: 100%;
+        background-color:#BAD2B0;
+        border-radius: 10px;
+        box-shadow: 1px 1px 10px black;
+        margin: 20px auto;
+        text-align: center;
+        
+      }
+
+      label{
+        margin-top: 10px;
+      }
+
+    #nom::placeholder{
+        
+        font-style: italic;
+    }
+    #prenom::placeholder{
+        
+        font-style: italic;
+    }
+    #sujet::placeholder{
+        
+        font-style: italic;
+    }
+    
+    
+    input{
+        width: 80%;
+        text-align: center;
+        background-color:#BAD2B0;
+        border: 0;
+        border-bottom: solid 1px black;
+    }
+    #question{
+        width: 80%;
+        font-style: italic;
+        text-align: center;
+        background-color:#BAD2B0;
+        border: 0;
+        border-bottom: solid 1px black;
+    }
+    #question option{
+        background-color: rgba(153, 153, 153, 0.401);
+        color: black;
+        text-align: center;
+        border: 0;
+        border-radius: 0;      
+    }
+    #sujet{
+        width: 80%;
+        height: 20vh;
+        text-align: center;
+        border-radius: 10px 10px 0 0;
+        background-color: rgba(153, 153, 153, 0.401);
+    }
+    .submit{
+        width: 30%;
+        border-radius: 10px;
+        border: 1px solid black;
+        margin-bottom: 15px;
+    }
+} 
+@media screen and (min-width: 800px){
+   
+    main{
+        display: flex;
+        padding: 7vh 2vw;
+        height: 93vh;
+    }
+   
+   
+   
+    .locaux {
+        width: 90%;
+        background-color:RGB(186, 210, 176);
+        border-radius: 10px;
+        box-shadow: 1px 1px 10px black;
+        margin-right: 2vw;
+      }
+
+
+    h1{
+        padding-top: 15px;
+        padding-bottom: 15px;
+        text-align:center
+
+    }
+    .texte{
+        width: 100%;
+        text-align: center;
+        font-size:  1.5vw;
+    }
+    .plan iframe{
+       
+        width: 100%;
+        height: 50vh;
+        border-radius: 25px;
+        padding: 15px;
+    }
+    
+    .contacter {
+        width: 90%;
+        background-color:#BAD2B0;        
+        border-radius: 10px;
+        box-shadow: 1px 1px 10px black;
+        text-align: center;
+        
+      }
+
+      label{
+        margin-top: 10px;
+        font-size:1.5vw;
+      }
+
+    #nom::placeholder{
+        
+        font-style: italic;
+    }
+    #prenom::placeholder{
+        
+        font-style: italic;
+    }
+    #sujet::placeholder{
+        
+        font-style: italic;
+    }
+    
+    
+    input{
+        width: 80%;
+        text-align: center;
+        background-color:#BAD2B0;
+        border: 0;
+        border-bottom: solid 1px black;
+    }
+    #question{
+        width: 80%;
+        background-color:#BAD2B0;
+        font-style: italic;
+        text-align: center;
+        border: 0;
+        border-bottom: solid 1px black;
+    }
+    #question option{
+        background-color: rgba(153, 153, 153, 0.401);
+        color: black;
+        text-align: center;
+        border: 0;
+        border-radius: 0;      
+    }
+    #sujet{
+        width: 80%;
+        height: 20vh;
+        text-align: center;
+        border-radius: 10px 10px 0 0;
+        background-color: rgba(153, 153, 153, 0.401);
+    }
+    .submit{
+        width: 30%;
+        border-radius: 10px;
+        border: 1px solid black;
+        margin-bottom: 15px;
+        font-size: 1.5vw;
+    }
+
+
+}

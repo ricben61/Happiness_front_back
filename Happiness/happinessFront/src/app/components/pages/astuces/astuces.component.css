@@ -1,0 +1,160 @@
+
+main {
+  padding: 10vh 5vw;
+}
+
+/* pour un telephone ou une petite tablette, tout est en display block */
+@media screen and (max-width: 800px) {
+  
+h1 {
+  text-align: center;   
+}
+.globYoga {
+  background-color: #BAD2B0;
+  border-radius: 10px; /*pour arrondir les angles*/
+  box-shadow: 1px 1px 10px black; /*pour faire un petit effet d'ombre*/
+  padding: 15px; /*pour eviter aux elements de coler les articles*/
+}
+.imageYoga{
+  width: 100%;
+  padding: 20px; /*pour avoir toujour la meme distance de chaque coter*/
+}
+.yoga img {
+  width: 100%;
+  border-radius: 50%; /*pour donner un effet rond a l'image*/
+  box-shadow: 1px 1px 10px  #00000088;/*pour garder le meme ombrage partout*/
+}
+.textYoga{
+  padding: 20px;
+  text-align: center;
+}
+.Tyoga{
+  margin: 0;  
+}  
+.astuces {
+  width: 100%;
+  background-color: #BAD2B0;
+  text-align: center;
+  box-shadow: 1px 1px 10px black;
+  border-radius: 10px;
+  margin-top: 20px; /*pour décaller la div de l'autre div*/
+  padding: 15px;/*pour centrer tout correctement*/
+}
+.accordion {  /* css pour l'accordion */
+  background-color: #BAD2B0;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  padding: 10px;
+  width: 70%;
+  transition: 0.4s;
+}
+button.accordion{
+  border: 0; /*pour enlerver la bordure des boutons de l'accordion*/
+  background-color:#BAD2B0;/*toujours la couleur choisi pas ma cliente*/
+  border-bottom: 1px solid black;/*pour mettre un trait juste sur le desous, afin de voir qu'il s'agit d'un truc a clicker*/
+  font-size: 1rem;
+}  
+.accordion:hover {
+  background-color: rgba(74, 73, 73, 0.401); /*pour avoir un effet au passage de la souris*/
+  color: white;
+}
+.detail {
+  width: 60%; /*permet au texte interieur de pas depasser et d'etre bien contenu*/
+  background-color: #BAD2B0;
+  text-align: start;/*start ou left, reviendrait au meme dans cette situation*/
+  margin: 10px auto;
+}
+.accordion::after { /*pour avoir une petite fleche vers le bas de l'accordion*/
+  content: "\02228";
+  font-size: 13px;
+  float: right;
+  padding-left: 5px;
+}
+}
+
+/*pour les autres écrans*/
+@media screen and (min-width:800px) {
+ 
+p{
+  font-size:1.3rem;
+}
+h1 {
+  text-align: center;
+  padding-bottom: 15px;
+  font-weight: 900;
+}
+.globYoga {
+  width: 100%;
+  background-color: #BAD2B0;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px black;
+  padding: 15px ;
+}
+.yoga {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+}
+.imageYoga{
+  width: 40%;
+  padding: 20px;
+  margin: auto;
+}
+.yoga img {
+  width: 100%;
+  border-radius: 50%;
+  box-shadow: -10px -10px 10px 10px #0c0c0c65;
+}
+.Tyoga{
+  margin: 0;
+}
+.textYoga {  
+  width: 60%;
+  text-align: center;
+  margin: 60px 20px;
+  font-size: 1.3rem;
+}   
+.astuces {
+  width: 100%;
+  background-color:#BAD2B0;
+  margin-top: 20px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px black;
+  padding: 5vh;
+}
+.accordion {/* css pour l'accordion */
+  background-color: #BAD2B0;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  padding: 10px;
+  width: 70%;
+  font-size: 15px;
+  transition: 0.4s;
+}
+button{
+  border: 0;
+  border-bottom: 1px solid black;
+}
+.accordion:hover {
+  background-color: rgba(74, 73, 73, 0.401);
+  color: white;
+}
+.detail {
+  width: 60%;
+  color: black;
+  background-color: #BAD2B0;
+  overflow: hidden;
+  margin:10px auto;
+}
+.accordion::before {
+  content: "\02228";
+  float: right;
+  padding-left: 5px;
+}
+#divAccordion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+}

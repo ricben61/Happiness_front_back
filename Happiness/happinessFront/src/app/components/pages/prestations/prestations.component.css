@@ -1,0 +1,290 @@
+
+main {
+  padding: 10vh 4vw;
+}
+
+@media screen and (max-width: 800px) {
+
+h2 {
+  padding-bottom: 2px;
+  font-size: 4vw; /*en vw car je trouve que le responsive est mieux gerer*/
+}
+p {
+  font-size: 2vw;
+}
+.coaching {
+  width: 80%;/* pour etre toujours centrer*/
+  height: 50vw;/*j'ai mis en vw car je trouve que ça reagit mieux au responsive*/
+  margin: 20px auto;
+  text-align: center;
+  background-color:#BAD2B0;
+  border-radius: 40px;
+  box-shadow: 1px 1px 10px black;
+}
+.coaching img {
+  width: 100%;
+  height: 50%;
+  border-radius: 40px 40px 0 0; /*pour avoir un border raduis que sur le haut*/
+}
+.access {
+  width: 80%;
+  height: 50vw;
+  margin: 20px auto;
+  text-align: center;
+  background-color :#BAD2B0;
+  border-radius: 40px;
+  box-shadow: 1px 1px 10px black;
+}
+.access img {
+  width: 100%;
+  height: 50%;
+  border-radius: 40px 40px 0 0;
+}
+.eft {
+  width: 80%;
+  height: 50vw;
+  margin: 20px auto;
+  text-align: center;
+  background-color:#BAD2B0;
+  border-radius: 40px;
+  box-shadow: 1px 1px 10px black;
+}
+.eft img {
+  width: 100%;
+  height: 50%;
+  border-radius: 40px 40px 0 0;
+}
+.entretien {
+  width: 80%;
+  height: 50vw;
+  margin: 20px auto;
+  text-align: center;
+  background-color:#BAD2B0;
+  border-radius: 40px;
+  box-shadow: 1px 1px 10px black;
+}
+.entretien img {
+  width: 100%;
+  height: 50%;
+  border-radius: 40px 40px 0 0;
+}
+.forfait {
+  width: 80%;
+  height: 50vw;
+  margin: 20px auto;
+  text-align: center;
+  background-color:#BAD2B0;
+  border-radius: 40px;
+  box-shadow: 1px 1px 10px black;
+}
+.forfait img {
+  width: 100%;
+  height: 50%;
+  border-radius: 40px 40px 0 0px;
+}
+}
+@media all and (min-width: 800px) and (max-width: 1200px) { /*pour les grands telephones et les tablettes, j'ai mis 2 colonnes*/
+.prestations {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);/* pour avoir 2 colonnes sur des ecrans moyens*/
+}
+h2 {
+  padding: 2px;
+  font-size: 3vw;
+}
+p {
+  padding-top: 0.5vw;
+  font-size: 1.5vw;
+}
+.coaching {
+  width: 80%;
+  height: 90%;
+  margin: 20px auto;
+  text-align: center;
+  background-color:#BAD2B0;
+  border-radius: 40px;
+  box-shadow: 1px 1px 10px black;
+}
+.coaching img {
+  width: 100%;
+  height: 50%;
+  border-radius: 40px 40px 0 0;
+}
+.access {
+  width: 80%;
+  height: 90%;
+  margin: 20px auto;
+  text-align: center;
+  background-color:#BAD2B0;
+  border-radius: 40px;
+  box-shadow: 1px 1px 10px black;
+}
+.access img {
+  width: 100%;
+  height: 50%;
+  border-radius: 40px 40px 0 0;
+}
+.eft {
+  width: 80%;
+  height: 90%;
+  margin: 20px auto;
+  text-align: center;
+  background-color:#BAD2B0;
+  border-radius: 40px;
+  box-shadow: 1px 1px 10px black;
+}
+.eft img {
+  width: 100%;
+  height: 50%;
+  border-radius: 40px 40px 0 0;
+}
+.entretien {
+  width: 80%;
+  height: 90%;
+  margin: 20px auto;
+  text-align: center;
+  background-color:#BAD2B0;
+  border-radius: 40px;
+  box-shadow: 1px 1px 10px black;
+}
+.entretien img {
+  width: 100%;
+  height: 50%;
+  border-radius: 40px 40px 0 0;
+}
+.for {
+  width: 50%;
+  margin: 0 auto;
+}
+.forfait {
+  width: 80%;
+  height:40vh;
+  margin: 20px auto;
+  text-align: center;
+  background-color:#BAD2B0;
+  border-radius: 40px;
+  box-shadow: 1px 1px 10px black;
+}
+.forfait img {
+  width: 100%;
+  height: 50%;
+  border-radius: 40px 40px 0 0;
+}
+}
+@media screen and (min-width: 1200px) {
+main{
+  height: 93vh;/*pour pouvoir aligner le footer en bas de page*/
+}
+p{
+  padding:1px;
+  margin: 0;
+}
+.prestations { /*pour que la premiere partie soit en ligne*/
+  display: flex;
+}
+h2 {
+  font-size: 2vw;
+  padding-top: 5px;
+}
+.coaching {
+  width: 25%;
+  height: 350px;
+  text-align: center;
+  background-color:#BAD2B0;
+  border-radius: 40px;
+  margin: 90px 15px;
+  box-shadow: 1px 1px 10px black;
+}
+.coaching:hover {
+  transform: scale(1.8);/*pour grossir l'élement de 1.8 fois au passage de la souris*/
+  transition: 0.5s; /*un timing pour pas que ça grossisse trop vite*/
+  margin-left: 150px;
+  margin-top: 150px;
+}
+.coaching img {
+  width: 100%;
+  height: 50%;
+  border-radius: 40px 40px 0 0;
+}
+.access {
+  width: 25%;
+  height: 250px;
+  text-align: center;
+  background-color:#BAD2B0;
+  border-radius: 40px;
+  margin: 0 15px;
+  box-shadow: 1px 1px 10px black;
+}
+.access:hover {
+  transform: scale(1.8);
+  transition: 0.5s;
+  margin-top: 150px;
+}
+.access img {
+  width: 100%;
+  height: 50%;
+  border-radius: 40px 40px 0 0;
+}
+.eft {
+  width: 25%;
+  height: 250px;
+  text-align: center;
+  background-color:#BAD2B0;
+  border-radius: 40px;
+  margin: 0 15px;
+  box-shadow: 1px 1px 10px black;
+}
+.eft:hover {
+  transform: scale(1.8);
+  transition: 0.5s;
+  margin-top: 150px;
+}
+.eft img {
+  width: 100%;
+  height: 50%;
+  border-radius: 40px 40px 0 0;
+}
+.entretien {
+  width: 25%;
+  height: 350px;
+  text-align: center;
+  background-color:#BAD2B0;
+  border-radius: 40px;
+  margin: 90px 15px;
+  box-shadow: 1px 1px 10px black;
+}
+.entretien:hover {
+  transform: scale(1.8);
+  transition: 0.5s;
+  margin-right: 150px;
+  margin-top: 150px;
+}
+.entretien img {
+  width: 100%;
+  height: 50%;
+  border-radius: 40px 40px 0 0;
+}
+.for {
+  width: 25%;
+  margin: 0 auto;
+}
+.forfait {
+  width: 100%;
+  height: 15vw;
+  margin: -200px auto;
+  text-align: center;
+  background-color:#BAD2B0;
+  border-radius: 40px;
+  box-shadow: 1px 1px 10px black;
+}
+.forfait:hover {
+  transform: scale(1.7);
+  transition: 0.5s;
+  margin-top: -300px;
+}
+.forfait img {
+  width: 100%;
+  height: 50%;
+  border-radius: 40px 40px 0 0px;
+}
+}

@@ -1,0 +1,96 @@
+
+main {
+padding: 10vh 5vw;
+}
+@media screen and (max-width: 800px) { /*je commence toujours par le telephone portable*/
+.monparcours {
+  background-color: RGB(186, 210, 176);
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px black;
+  padding: 15px;
+}
+h1 {
+  text-align: center;
+}
+h3 {
+  text-align: center;
+  padding-top: 20px;
+  text-decoration: underline; /*pour souligner le titre */
+}
+.ikigai {
+  background-color: RGB(186, 210, 176);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 1px 1px 10px black;
+  margin-top: 20px;
+  padding: 15px;
+}
+.iki{
+  display: block;
+  text-align: center;
+}
+img {
+  width: 40%;
+  margin: 15px;
+  border-radius: 20px;
+}
+.textIkigai{
+  display: block;
+}
+.conclusion {
+  background-color: RGB(186, 210, 176);
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px black;
+  padding: 15px;
+  margin-top: 20px;
+}
+}
+@media screen and (min-width: 800px){
+p {
+  padding-top: 15px;
+  font-size: 1.3em;
+}
+.monparcours {
+  background-color: RGB(186, 210, 176);
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px black;
+  padding: 15px;
+}
+h1 {
+  text-align: center;
+}
+h3 {
+  text-align: center;
+  padding-top: 20px;
+  text-decoration: underline; /*pour souligner le titre */
+}
+.ikigai {
+  background-color: RGB(186, 210, 176);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 1px 1px 10px black;
+  margin-top: 20px;
+  padding: 15px;
+}
+.iki{
+  width: 100%;
+  display: flex;/*pour mettre l'image a la suite du texte*/
+  text-align: center;/*pour aliogner le texte horizontalement*/
+  align-items: center; /*pour aligner le texte et l'image verticalement*/
+}
+.iki p {
+  width: 50%;
+}
+img {
+  width: 40%;
+  margin: 15px;
+  border-radius: 20px;
+}
+.conclusion {
+  background-color: RGB(186, 210, 176);
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px black;
+  padding: 15px;
+  margin-top: 20px;
+}
+}

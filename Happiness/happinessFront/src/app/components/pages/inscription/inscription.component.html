@@ -1,0 +1,77 @@
+<main class="mainInscription">
+
+    <section id="sectionInscription">
+        <h1 class="h1TitreInscription">Formulaire d'inscription</h1>
+
+        <form class="FormulaireInscription" *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()"
+            #f="ngForm" novalidate>
+            <div class="form-group">
+                <label for="nameInscription">Nom d'utilisateur:</label>
+                <input id="nameInscription" name="name" class="form-control" [(ngModel)]="form.name" required
+                    minlength="3" maxlength="20" #name="ngModel" type="text" placeholder="Nom d'utilisateur">
+                    <div class="alert-danger" *ngIf="name.errors && f.submitted">
+                        <div *ngIf="name.errors['required']" style="color: crimson">le nom de l'utilisateur est requis</div>
+                        <div *ngIf="name.errors['minlength']" style="color: crimson" >
+                            le nom de l'utilisateur dois contenir au moins 3 characters
+                        </div>
+                        <div *ngIf="name.errors['maxlength']" style="color: crimson" >
+                            le nom de l'utilisateur dois avoir 20 caracters maximum
+                        </div>
+                      </div>
+            </div>
+            <div class="form-group">
+                <label for="InputInscription">adresse email:</label>
+                <input id="InputInscription" name="email" type="email" class="form-control" 
+                [(ngModel)]="form.email"
+                required
+                email
+                #email="ngModel"
+                aria-describedby="emailHelp"
+                    placeholder="email">
+                    <div class="alert-danger" *ngIf="email.errors && f.submitted">
+                        <div *ngIf="email.errors['required']" style="color: crimson" >L'email est requis</div>
+                        <div *ngIf="email.errors['email']" style="color: crimson" >
+                          Adress email non valid
+                        </div>
+                      </div>
+            </div>
+            <div class="form-group">
+                <label for="myInput">Mot de passe:</label>
+                <input id="myInput" name="password" type="password" class="inputInscription form-control"
+                    id="exampleInputPassword1" placeholder="Mot de passe"
+                    [(ngModel)]="form.password"
+                    required
+                    minlength="6"
+                    #password="ngModel" > 
+                    <div class="alert-danger" *ngIf="password.errors && f.submitted">
+                        <div *ngIf="password.errors['required']">Mot de passe obligatoire</div>
+                        <div *ngIf="password.errors['minlength']">
+                          Le mot de passe doit avoir minimum 6 caracteres
+                        </div>
+                      </div>
+            </div>
+            <div class="form-group mb-3 ">
+                <label for="myInput2">Confirmation de mot de passe:</label>
+                <input id="myInput2" name="confirmPassword" type="password"
+                    class="inputInscription form-control rounded-right" 
+                    placeholder="Confirmation de mot de passe"
+                    [(ngModel)]="form.confirmpassword"
+                    required
+                    minlength="6"
+                    #password="ngModel">
+
+            </div>
+                <input type="checkbox" onclick="myFunction2(),myFunction()"> Voir vos mots de passe.
+            
+            <button type="submit" class="btn btn-primary">Valider</button>
+            <div class="alert alert-warning" *ngIf="f.submitted && isSignupFailed">
+                Inscription échoué<br />{{ errorMessage }}
+              </div>
+        </form>
+        <div class="alert alert-success" *ngIf="isSuccessful">
+            votre inscription est un succes!
+          </div>
+    </section>
+
+
+</main>

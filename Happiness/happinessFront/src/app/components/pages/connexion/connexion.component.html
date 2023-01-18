@@ -1,0 +1,40 @@
+<main class="mainConnexion">
+
+
+    <form class="formConnexion" *ngIf="!isLoggedIn" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm"
+        novalidate>
+        <h1 class="h1Connexion">Connexion</h1>
+
+        <div class="nomConnexion form-group">
+            <label class="labelConnexion" for="exampleFormControlTextarea1">Nom d'utilisateur:</label>
+            <input name="name" class="inputConnexion" type="text" placeholder="Nom d'utilisateur"
+                [(ngModel)]="form.name" required #name="ngModel">
+
+            <div class="alert alert-danger" role="alert" *ngIf="name.errors && f.submitted">
+                un utilisateur est obligatoire!
+            </div>
+        </div>
+        <div class="motdepasseConnexion form-group">
+            <label for="password">Mot de passe:</label>
+            <div>
+                <input name="password" id="myInput" type="password" class="inputConnexion" placeholder="Mot de passe"
+                    name="password" [(ngModel)]="form.password" required minlength="6" #password="ngModel">
+                <div class="alert alert-danger" role="alert" *ngIf="password.errors && f.submitted">
+                    <div *ngIf="password.errors['required']">mot de passe obligatoire</div>
+                    <div *ngIf="password.errors['minlength']">
+                        le mot de passe dois contenir 6 carateres au minimum
+                    </div>
+                </div>
+            </div>
+            <div
+            class="alert alert-danger"
+            role="alert"
+            *ngIf="f.submitted && isLoginFailed">
+            connexion echouée: {{ errorMessage }}
+          </div>
+            <input class="checkboxConnexion" type="checkbox" onclick="myFunction()"> Afficher le mot de passe
+        </div>
+        <button type="submit" class="submitConnexion">Connexion</button>
+    </form>
+    
+</main>

@@ -1,0 +1,102 @@
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
+
+main {
+  width: 100%;
+  height: 94vh;
+}
+
+@media screen and (max-width: 800px) {
+ 
+main{
+  height: 90vh;
+}
+img {
+  width: 100%;
+  height: 100%;
+  position: absolute; /*pour afficher l'image en arriere plan et permettre aux autres element de s'afficher par dessus*/
+  z-index: -1;
+}
+h1 {
+  padding-top: 35vh; /*pour descendre le titre bien au millieu de l'image*/
+  font-family: "Great Vibes";
+  text-align: center; /*pour bien centrer le titre*/
+  font-size: 15vw; /* en vw pour biengrandir et retrecir en fonction du responssive*/
+  color: rgb(223, 157, 77);
+  text-shadow: 0px 3px 0px black; /*pour faire ressortir le titre*/
+}
+h3 {
+  color: rgb(0, 0, 0);
+  text-align: center;
+  font-size: 4vw;
+  font-family: "Great Vibes";
+}
+p{
+  color: rgb(0, 0, 0);
+  text-align: center;
+  font-size: 2vw;
+  font-style: italic;
+  font-family: "Great Vibes";
+} 
+}
+
+@media all and (min-width: 800px) and (max-width: 1200px) {
+img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+}
+h1 {
+  padding-top: 33vh;
+  font-family: "Great Vibes";
+  text-align: center;
+  font-size: 14vw;
+  color: rgb(223, 157, 77);
+  text-shadow: 0px 3px 0px black;
+}
+h3 {
+  color: rgb(0, 0, 0);
+  text-align: center;
+  font-size: 3vw;
+  font-family: "Great Vibes";
+}
+p{
+  color: rgb(0, 0, 0);
+  text-align: center;
+  font-size: 1.5vw;
+  font-style: italic;
+  font-family: "Great Vibes";
+}
+}
+
+@media screen and (min-width: 1200px) {
+  
+img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+}
+h1 {
+  padding-top: 31vh;
+  font-family: "Great Vibes";
+  text-align: center;
+  font-size: 10vw;
+  color: rgb(223, 157, 77);
+  text-shadow: 0px 3px 0px black;
+}
+h3 {
+  color: rgb(0, 0, 0);
+  text-align: center;
+  font-size: 2.5vw;
+  font-style: italic;
+  font-family: "Great Vibes";  
+}
+ p{
+  color: rgb(0, 0, 0);
+  text-align: center;
+  font-size: 1.5vw;
+  font-style: italic;
+  font-family: "Great Vibes";  
+}
+}

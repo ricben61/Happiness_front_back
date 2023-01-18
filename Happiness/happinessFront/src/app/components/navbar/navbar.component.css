@@ -1,0 +1,89 @@
+
+nav{
+  position: fixed; /*pour fixer le menu en haut de l'ecran meme quand on scroll*/
+  width: 100%;
+}
+a{
+  text-decoration: none; /* pourenlever les decorations d'origine*/
+}
+ul{
+  padding: 0;
+  margin: 0;
+  list-style: none; /*pour enlever les points devant*/
+}
+.active{
+  color: #000000; /*facile l'utilisateur a savoir sur quelle page il est*/
+}
+
+/* je commence par les écrans de téléphone */
+@media screen and (max-width: 800px){
+
+.down-content {
+  display: none;
+  position: absolute;
+  z-index: 1; /*pour qu'il s'affiche au dessus des autres elements*/
+  border-radius: 10px;
+}
+.menuCachet{
+  display: flex;
+  background-color: #BAD2B0;
+  justify-content: space-between;
+}
+
+
+ a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block; /* permet de mieux aerer le menu cacher et de ne pas coller les liens*/
+  border-radius: 10px;
+}
+.btn{
+  color: rgb(0, 0, 0);
+  background-color:#BAD2B0; /*couleur du bouton de la meme couleur que tout le site*/
+  padding: 5px;
+}
+
+ a:hover {
+  color:white;
+  
+}
+.down:hover .down-content { /*permet de faire apparaitre le menu cachet*/
+  display: block;
+  background-color: #BAD2B0;
+}
+.down:hover .btn {
+  color:white;
+  background-color:  #BAD2B0;
+}  
+.menu{ /*pour cacher le grand menu*/
+  display: none;
+}
+
+}
+/* pour les écrans plus grand */
+@media screen and (min-width: 800px) {
+ 
+  .menuCachet{ /*pour cachet le menu hamburger*/
+    display: none;
+   }
+  .menu ul{
+    font-size: 1.2rem;
+    width: 100%;
+    padding-top: 5px;
+    height:5vh;
+    display: flex;    
+    background-color: #BAD2B0;
+    text-align: center;
+    justify-content: space-around;
+  } 
+  a{
+     color: rgb(252, 252, 252);
+  }
+  a:hover{
+    color: #000000;
+    }
+    .dropdown-menu{
+      background-color: #BAD2B0;
+    }
+}

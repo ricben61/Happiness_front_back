@@ -1,0 +1,27 @@
+<div >
+    <h2>User index</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>email</th>
+                <th>role</th>
+                <th>action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users ">
+                <td>{{user.id}}</td>
+                <td>{{user.name}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.isAdmin ? 'admin' : 'user'}}</td>
+                <td><a routerLink="../edit-user/{{user.id}}">edit</a></td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    <ng-template #elseBlock>
+        <div class="alert alert-danger">You are not admin</div>
+    </ng-template>
+    

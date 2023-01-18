@@ -1,0 +1,185 @@
+
+main {
+  padding: 10vh 3vw ; 
+}
+@media screen and (max-width: 800px) {
+h1,h2,h3,h5 {
+  text-align: center;/*pour centrer les titre*/
+}
+h4{
+  font-weight: 800;/*pour mettre en plus gras*/
+  text-decoration: underline;/*pour souligner le titre*/
+}
+p{
+  font-size: 1.3em;
+}
+
+#ikigai {
+  width: 100%;
+  background-color: #BAD2B0;
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px black;
+  margin: 0px auto;
+  padding: 15px;
+}
+.titreImageIkigai img {
+  display: block;
+  width: 80%;
+  margin: 20px auto;
+  border-radius: 50px;
+}
+.accordion {
+  border-radius: 0;
+  width: 80%;
+  margin: 20px auto; /*pour centrer l'accordeon */
+}
+.accordion-item {   
+  border-radius: 0;/*pour enlever les border d'orrigine*/
+  border: 0;
+}
+.accordion-button {
+  position: inherit; /*pour enlever la position relative des bouton de l'accordeon afin que mon menu hambuger saffiche au dessus*/
+  background-color:#BAD2B0;
+  font-size: 0.8em;
+  border-bottom: 1px solid black;
+  border-radius: 0;
+}
+.accordion-item:last-of-type .accordion-button.collapsed {
+  border-radius: 0; /*enlever le border-raduis du dernier bouton de l'accordeon*/
+}
+.accordion-item:first-of-type .accordion-button {
+  border-radius: 0%; /*enlever le petit border raduis en haut du bouton*/
+}
+.accordion-button:not(.collapsed)::after {
+  background-image: none; /*pour enlever la petite fleche bleu*/
+}
+.accordion-button:hover { /*pour le hover des boutons de l'accordeon*/
+  background-color: rgba(74, 73, 73, 0.401);
+  color: white;
+  box-shadow: none;
+}
+.accordion-button:focus { /*pour enlever le box-shadow bleu*/
+  box-shadow: none;
+  color: #ffffff;
+}
+.accordion-button:not(.collapsed) { /*pour changer la couler des titres apres avoir clicker et ouver l'accordion*/
+  color: #ffffff;
+}
+.accordion-body { /*changer la couleur a l'interieur de l'accordeon*/
+  background-color:#BAD2B0;
+}
+.eft {
+  width: 100%;
+  background-color:#BAD2B0;
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px black;
+  padding: 15px;
+  margin: 20px auto;
+}  
+ul {
+  margin-top: 10px;
+  font-size: 1.3em;
+}
+}
+@media screen and (min-width: 800px) {
+h1,h2,h3,h5 {
+  text-align: center;
+}
+h4{
+  font-weight: 800;
+  text-decoration: underline;
+}
+p{
+  font-size: 1.3em;
+}
+ul {
+  margin-top: 10px;
+  font-size: 1.3em;
+}
+.enSavoirPlus{
+  background-color: #BAD2B0;
+  border-radius: 15px;
+  padding: 5px;
+}
+.enSavoirPlus:hover{
+  background-color: rgb(77, 77, 79);
+  color: #ffffff;
+}
+
+#ikigai {
+  width: 100%;
+  background-color: #BAD2B0;
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px black;
+  margin: 0px auto;
+  padding: 15px;
+}
+.glob {
+  display: flex;
+  width: 100%;
+}
+.globIkigay {
+  margin: 20px auto;
+  width: 50%;
+}
+.titreImageIkigai {
+  margin: 20px auto;
+  width: 50%;
+}
+.titreImageIkigai img {
+  display: block;
+  width: 80%;
+  margin: 20px auto;
+  border-radius: 50px;
+}
+.accordion {
+  border-radius: 0;
+  width: 85%;
+  margin: 60px auto; /*pour centrer l'accordeon */
+}
+.accordion-item {
+  border-radius: 0; /*pour enlever les border */
+  border: 0;
+}
+.accordion-button {
+  position: inherit; /*pour enlever la position relative des bouton de l'accordeon afin que mon menu hambuger saffiche au dessus*/
+  background-color:#BAD2B0;
+  border-bottom: 1px solid black;
+  border-radius: 0;
+}
+.accordion-item:last-of-type .accordion-button.collapsed {
+  border-radius: 0;/*enlever le border-raduis du dernier bouton de l'accordeon*/
+}
+.accordion-item:first-of-type .accordion-button {
+  border-radius: 0%;/*enlever le petit border raduis en haut du bouton*/
+}
+.accordion-button:not(.collapsed)::after {
+  background-image: none; /*pour enlever la petite fleche bleu*/
+}
+.accordion-button:hover {
+  background-color: rgba(74, 73, 73, 0.401);/*pour le hover des boutons de l'accordeon*/
+  color: white;
+  box-shadow: none;
+}
+.accordion-button:focus {
+  box-shadow: none;/*pour enlever le box-shadow bleu*/
+  color: white;
+}
+.accordion-body {
+  background-color: #BAD2B0;/*changer la couleur a l'interieur de l'accordeon*/
+}
+.accordion-button:not(.collapsed) {
+  color: white;
+}
+.globaccordion {
+  width: 50%;
+}
+.eft {
+  background-color: #BAD2B0;
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px black;
+  padding: 15px;
+  margin-top: 20px ;
+}   
+}
+  
