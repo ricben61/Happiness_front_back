@@ -1,0 +1,51 @@
+<main class="mainEditUsers">
+
+    <section class="cardEditUsers">
+        <div class="EditUsers">
+            <img id="profile-img" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" class="img-thumbnail"/>
+            <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+                <div class="form-group">
+                    <label for="name">Nom</label>
+                    <input type="text"  name="name" [(ngModel)]="form.name" required minlength="3"
+                        maxlength="20" #login="ngModel" />
+                    <div class="alert-danger" *ngIf="login.errors && f.submitted">
+                        <div *ngIf="login.errors['required']">le nom est obligatoire</div>
+                        <div *ngIf="login.errors['minlength']">
+                            le nom de l'utilisateur dois contenir au moins 3 characters
+                        </div>
+                        <div *ngIf="login.errors['maxlength']">
+                            le nom de l'utilisateur dois avoir 20 caracters maximum
+                        </div>
+                    </div>
+                </div>
+                <div class="Admin">
+                    <p class="AdminRole"> Admin role : </p>
+                    <div class="GlobOuiNon">
+                        <label for="yes" class="ouiNon">oui</label>
+                        <input type="radio" name="isAdmin" [(ngModel)]="form.isAdmin" #isAdmin="ngModel" id="yes"
+                            value="true" />
+                        <label for="no" class="ouiNon">non</label>
+                        <input type="radio" name="isAdmin" [(ngModel)]="form.isAdmin" #isAdmin="ngModel" id="no"
+                            value="false" />
+                    </div>
+                    <div class="alert-danger" *ngIf="isAdmin.errors && f.submitted">
+                        <div *ngIf="isAdmin.errors['required']">isAdmin is required</div>
+                    </div>
+                </div>
+                <div class="Valid">
+                    <button class="btnValider">Valider</button>
+                   <button class="btnValider"><a class="retour" routerLink="/user-index">Retour à l'index</a></button>
+                </div>
+
+                <div class="alert alert-warning" *ngIf="f.submitted && isUpdateFailed">
+                    échec de la modification !<br />{{ errorMessage }}
+                </div>
+            </form>
+
+            <div class="alert alert-success" *ngIf="isSuccessful && user">
+                user {{user.name}} l'utilisateur à bien été modifier!
+            </div>
+            
+        </div>
+    </section> 
+</main>

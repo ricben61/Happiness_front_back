@@ -1,0 +1,17 @@
+.maintableauUsers{
+    height: 90vh;
+    padding: 10vh 4vw;
+}
+
+.tableauUsers{
+    width: 90%;
+    background-color:#BAD2B0;
+    border-radius: 10px;
+    margin: auto;
+}
+h2{
+    text-align: center;
+    padding-top: 10px;
+}
+
+

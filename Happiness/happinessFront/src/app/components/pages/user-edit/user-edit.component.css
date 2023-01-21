@@ -1,0 +1,97 @@
+
+
+.mainEditUsers{
+    /* height: 90vh; */
+    padding: 8vh 4vw;
+}
+
+.cardEditUsers{
+    width: 30vw;
+    height: 75vh;
+    margin: auto;
+    background-color: RGB(186, 210, 176);
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px black;
+    padding: 15px;
+    align-items: center;
+    text-align: center;
+
+}
+#profile-img{
+    width: 30;
+    margin-top: 20px;
+    align-items: center;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+input{
+    width: 60%;
+    border: 0;
+    text-align: center;
+    border-bottom: 1px solid black;
+    background-color: RGB(186, 210, 176);
+    margin: auto;
+}
+label{
+    width: 100%;
+    text-align: center;
+}
+.Admin{
+    display: flex;
+    align-items: center;
+    
+}
+.AdminRole{
+    width: 50%;
+    padding-top: 20px;
+    margin: 0%;
+    background-color: RGB(186, 210, 176);
+    text-align: center;
+}
+.GlobOuiNon{
+    display: flex;
+    padding-top: 20px;
+    /* margin-left: 10px; */
+    width: 30%;
+    text-align: start;
+    background-color: RGB(186, 210, 176);
+}
+.Valid{
+    display: flex;
+    padding-top: 20px;
+    justify-content: space-around;
+    align-items: center;
+}
+.btnValider{
+    margin: 10px;
+    padding: 10px;
+    background-color: cornflowerblue;
+    border-radius: 10px;
+}
+.retour{
+    text-decoration: none;
+    color:black;
+    border-radius: 10px;
+   
+}
+.ouiNon{
+    text-align: end;
+}
+@media screen and (max-width: 800px){
+    .mainEditUsers{
+        
+        padding: 10vh 4vw;
+    }
+
+    .cardEditUsers{
+        width: 80%;
+    }
+
+    .Admin{
+        display: flex;
+        margin: auto;
+        /* width: 30%; */
+    }
+}
+
+

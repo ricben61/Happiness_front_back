@@ -1,16 +1,36 @@
 <main class="mainAvisClientsUpdate">
-    
-    <h2 class="H2avisClient">Modifier votre avis clients</h2>
 
-    <section class="posterCommentaireavisClients">
-        <div class="PosterCommentaires">
-          <h3 class="h3AvisClients">Poster votre avis clients.</h3>
-          <form class="formAvisClients" >
-            <textarea class="descrptionCommentaire" name="description" class="textareaAvisClient" cols="70" rows="5"
-              placeholder="écrivez votre commentaire"></textarea>
-            <button type="submit" class="btnPosterAvisClients">Ajouté un avis</button>
-          </form>
+
+  <section class="secModavisClients">
+
+    <div class="ModCommentaires">
+      <h3 class="h3AvisClients">Modifier votre avis clients.</h3>
+      <form *ngIf="admin else elseBlock"  class="formAvisClients" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+        <label for="userName">Nom</label>
+        <input type="text" class="form-control" name="userName" [(ngModel)]="form.userName" required minlength="3"
+          maxlength="20" #userName="ngModel" />{{AvisClients?.userName}} 
+        <textarea class="descrptionCommentaire" type="description" name="description" [(ngModel)]="form.description"
+          required content #description="ngModel" placeholder="écrivez votre commentaire">{{AvisClients?.description}}</textarea>
+          <div class="alert-danger" *ngIf="description.errors && f.submitted">
+            <div *ngIf="description.errors['required']">la description de l'avis clients et obligatoire</div>
+            <div *ngIf="description.errors['content']">
+              content must be a valid content address
+            </div>
+          </div>
+       
+          <button type="submit" class="btnPosterAvisClients">Modifier votre avis</button>
+      
+        <div class="alert alert-warning" *ngIf="f.submitted && !isPublished">
+          Modification échouer!<br />{{ errorMessage }}
         </div>
-      </section>
+      </form>
+      <ng-template #elseBlock>
+        <div class="alert alert-danger">You are not the author of this post</div>
+      </ng-template>
+      <div class="alert alert-success" *ngIf="isPublished">
+        votre modification est validée !
+      </div>
+    </div>
+  </section>
 
 </main>

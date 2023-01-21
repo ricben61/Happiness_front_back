@@ -1,8 +1,9 @@
 
-export interface Avisclient {
-    id:string;
+export interface AvisClients {
+    _id:string;
     author:string;
-    description?: string;
+    userName:string;
+    description:string;
     createdAt:Date;
     
 }

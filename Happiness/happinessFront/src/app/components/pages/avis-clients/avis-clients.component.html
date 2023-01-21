@@ -1,70 +1,63 @@
 <main class="mainAvisClients">
 
-    <h2 class="H2avisClient">tous les avis clients</h2>
-  
-    <section class="gridCom" *ngFor="let avisclient of avisclients" >
-      
-      <section class="globCom"  >
-       
-          <div class="descriptionCom"><textarea name="description" cols="60" rows="2">{{avisclient.description}}</textarea></div>
-  
-          <div class="bouttonCommentaire">
-            <div class="BtnModCom">
-              <button type="submit" class="btnModifComAvisClients"><i class="fa-solid fa-pen-to-square"></i>
-               Modifier</button>
-       
-        </div>
-        <div class="BtnSuppCom">  
-            <button onclick='return confirm("Êtes-vous sûr de vouloir supprimer?")' type="submit"
-              class="btnSuppComAvisClients"><i class="fa-solid fa-trash"></i> Supprimer</button>
+  <h2 class="H2avisClient">tous les avis clients</h2>
+
+  <section class="gridCom" *ngFor="let avisclient of avisclients  ">
+
+    
+    <section class="globCom">
+      <p>Avis laisser par {{avisclient.userName}} le {{avisclient.createdAt}}</p>
+      <div class="descriptionCom"><textarea name="description" cols="60" rows="2">{{avisclient.description}}</textarea>
+      </div>
+
+      <div class="bouttonCommentaire">
+        <div class="BtnModCom">
+          <button type="submit" class="btnModifComAvisClients"><a routerLink="../avis-clients-update/{{avisclient._id}}">Modifier</a></button>
 
         </div>
+        <div class="BtnSuppCom">
+          <button onclick='return confirm("Êtes-vous sûr de vouloir supprimer?")' type="submit"
+            class="btnSuppComAvisClients"><i class="fa-solid fa-trash"></i> Supprimer</button>
+
         </div>
-      </section>     
-      
-        
-  
+      </div>
     </section>
 
-    <section class="posterCommentaireavisClients">
-      <div class="PosterCommentaires">
-        <h3 class="h3AvisClients">Poster votre avis clients.</h3>
-        <form class="formAvisClients" 
-        *ngIf="admin"
-        name="form"
-        (ngSubmit)="f.form.valid && onSubmit()"
-        #f="ngForm"
-        novalidate >
 
 
-          <textarea 
-          class="descrptionCommentaire form-group"
-          type="description"
-          [(ngModel)]="form.description" 
-          name="description" 
-          cols="70" rows="5"
-          placeholder="écrivez votre commentaire"></textarea>
-          <!-- <div class="alert-danger" *ngIf="description.errors && f.submitted">
+  </section>
+
+  <section class="posterCommentaireavisClients">
+    <div class="PosterCommentaires">
+      <h3 class="h3AvisClients">Poster votre avis clients.</h3>
+      <form class="formAvisClients" *ngIf="admin" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm"
+        novalidate>
+        <label for="userName">nom</label>
+        <input type="text" class="form-control" name="userName" [(ngModel)]="form.userName" required minlength="3"
+          maxlength="20" #userName="ngModel" />
+
+        <textarea class="descrptionCommentaire form-group" type="description" [(ngModel)]="form.description"
+          name="description" cols="70" rows="5" placeholder="écrivez votre commentaire"></textarea>
+        <!-- <div class="alert-danger" *ngIf="description.errors && f.submitted">
             <div *ngIf="description.errors['required']">content is required</div>
             <div *ngIf="description.errors['content']">
               content must be a valid content address
             </div>
           </div>  -->
-          
-          
-          <button type="submit" class="btnPosterAvisClients">Ajouté un avis</button>
-        
-          <div class="alert alert-warning" *ngIf="f.submitted && !isPublished">
-            Publication failed!<br />{{ errorMessage }}
-          </div>
-        
-        </form>
-        <div class="alert alert-success" *ngIf="isPublished">
-          Your post has been published !
+
+
+        <button type="submit" class="btnPosterAvisClients">Ajouté un avis</button>
+
+        <div class="alert alert-warning" *ngIf="f.submitted && !isPublished">
+          Publication failed!<br />{{ errorMessage }}
         </div>
 
+      </form>
+      <div class="alert alert-success" *ngIf="isPublished">
+        Votre avis a bien été publier!
       </div>
-    </section>
 
-  </main>
+    </div>
+  </section>
 
+</main>

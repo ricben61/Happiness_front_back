@@ -53,7 +53,7 @@ router.post("/login", async (req, res) => {
             return res.status(400).json({ message: "mot de passe incorrect", status: 400 })
         }
         const payload = {
-            id: user.id,
+            _id: user._id,
             name: user.name,
             email: user.email,
             isAdmin: user.isAdmin
@@ -68,7 +68,7 @@ router.post("/login", async (req, res) => {
                     name: user.name,
                     email: user.email,
                     admin: user.isAdmin,
-                    userId: user.id 
+                    userId: user._id 
                     }
                 }
             })
@@ -85,7 +85,7 @@ router.get("/", async (req, res) => {
     try {
         const userList = await User.find().sort("-createdAt");
          console.log(userList);
-       return res.status(200).json({ status: 200, result: userList });
+       return res.status(200).json(userList);
       
     }
     catch (error) {
@@ -93,7 +93,7 @@ router.get("/", async (req, res) => {
     }
 })
 
-router.get("/:id", auth, async (req, res) => {
+router.get("/:id", async (req, res) => {
     try {
         const userId = await User.findById(req.params.id)
         if (!userId) {
@@ -110,7 +110,7 @@ router.get("/:id", auth, async (req, res) => {
 })
 
 
-router.put("/update/:id", auth,async (req,res) =>{
+router.put("/update/:id",async (req,res) =>{
     try {
         const user = await User.findById(req.params.id)
        if (!user) {

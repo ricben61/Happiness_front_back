@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Avisclient } from 'src/app/models/avisclients.model';
+import { AvisClients } from 'src/app/models/avisclients.model';
 import { AvisClientsService } from 'src/app/_services/avis-clients.service';
 import { TokenStorageService } from 'src/app/_services/token-storage.service';
 
@@ -16,7 +16,7 @@ export class AvisClientsComponent  {
   //on définit les variables nécessaires :
   //form contiendra les valeurs entrées dans le formulaire
   form: any = {
-    
+    userName:null,
     description: null    
   }
   //admin dira si le user connecté a le statut admin
@@ -29,8 +29,10 @@ export class AvisClientsComponent  {
   idUser = '';
  //author renseignera la propriété author du post qui sera créé
  author = '';
-
-  avisclients : Avisclient[] = [];
+ userName='';
+ 
+  avisclients : AvisClients[] = [];
+  
   loading: boolean= false;
 
   constructor(private avisClientsService : AvisClientsService,
@@ -42,14 +44,15 @@ export class AvisClientsComponent  {
     if(this.tokenStorage.getUser().admin) {
       this.admin = true;
       this.author = this.tokenStorage.getUser().userId;
+      
     }
   }
   //quand l'avis client est soumis, on sollicite la méthode createAvis() de avisClientService à laquelle on donne en arguments les valeurs récupérées dans les champs title et content du formulaire. L'argument author est renseigné grâce à la propriété author du composant renseignée dans ngOnInit() (voire ci-dessus)
   onSubmit(): void {
-    const {  description } = this.form;
-    this.avisClientsService.createAvisclients(this.author, description,  ).subscribe(
+    const   {userName,description}  = this.form;
+    this.avisClientsService.createAvisclients(this.author,userName,description).subscribe(
       data => {
-        console.log(data);
+        // console.log(description);
         this.isPublished = true;
       },
       err => {

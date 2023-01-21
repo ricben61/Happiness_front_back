@@ -10,6 +10,8 @@ import { ConnexionComponent } from './components/pages/connexion/connexion.compo
 import { InscriptionComponent } from './components/pages/inscription/inscription.component';
 import { AvisClientsComponent } from './components/pages/avis-clients/avis-clients.component';
 import { UserIndexComponent } from './components/pages/user-index/user-index.component';
+import { UserEditComponent } from './components/pages/user-edit/user-edit.component';
+import { AvisClientsUpdateComponent } from './components/pages/avis-clients-update/avis-clients-update.component';
 
 const routes: Routes = [
 
@@ -54,13 +56,17 @@ const routes: Routes = [
    {
    path:'user-index',
    component:UserIndexComponent
+   },
+   {
+    path:'user-edit/:id',
+    component:UserEditComponent
+   },
+   {
+    path:'avis-clients-update/:id',
+    component:AvisClientsUpdateComponent
    }
    
-
 ]
-
-
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {

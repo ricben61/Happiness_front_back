@@ -3,11 +3,14 @@ const mongoose = require("mongoose");
 const AvisClientsSchema = new mongoose.Schema(
     {
         author:{
-            type:mongoose.Schema.Types.ObjectId,
-            required: true,
-            ref: "User"
-        },
-        description: {
+             type:mongoose.Schema.Types.ObjectId,
+             required: true,
+             ref: "User"
+         },
+         userName:{
+            type:String},
+        
+         description: {
             type: String,
             require: true
         },
@@ -17,4 +20,4 @@ const AvisClientsSchema = new mongoose.Schema(
         timestamps: true
     }
 );
-module.exports = mongoose.model("avisclients", AvisClientsSchema);
+module.exports = mongoose.model("AvisClients", AvisClientsSchema);

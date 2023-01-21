@@ -1,0 +1,36 @@
+
+
+
+
+.mainAvisClientsUpdate{
+    min-height: 89vh;
+    padding: 10vh 5vw;
+   
+}
+.secModavisClients{
+    width: 60%;
+    margin: auto;
+    padding-top: 20px;
+    border-radius: 15px;
+    background-color: #BAD2B0;
+    text-align: center;
+   
+}
+.ModCommentaires{
+    width: 70%;
+    text-align: center;
+    margin: auto;
+}
+.formAvisClients{
+    
+    margin: 15px auto;
+    padding-bottom: 20px;
+}
+
+textarea{
+    width: 90%;
+    height: 20vh;
+}
+
+
+

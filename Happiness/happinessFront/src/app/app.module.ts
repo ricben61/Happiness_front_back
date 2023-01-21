@@ -24,6 +24,7 @@ import { InscriptionComponent } from './components/pages/inscription/inscription
 import { AvisClientsComponent } from './components/pages/avis-clients/avis-clients.component';
 import { UserIndexComponent } from './components/pages/user-index/user-index.component';
 import { AvisClientsUpdateComponent } from './components/pages/avis-clients-update/avis-clients-update.component';
+import { UserEditComponent } from './components/pages/user-edit/user-edit.component';
 
 
 
@@ -47,6 +48,7 @@ import { AvisClientsUpdateComponent } from './components/pages/avis-clients-upda
     AvisClientsComponent,
     UserIndexComponent,
     AvisClientsUpdateComponent,
+    UserEditComponent,
     
     
   ],
