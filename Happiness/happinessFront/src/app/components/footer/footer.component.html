@@ -1,5 +1,5 @@
 <footer>
-    
+    <button id="top-btn" *ngIf="showBtn$ | async"class="material-icons" (click)="gotoTop()"> arrow_upward </button>
     <section class="page">
 
         <h3>Pages</h3>
@@ -10,6 +10,7 @@
             <li><a routerLink="outils-et-methodes" routerLinkActive="active"> Outils et methodes </a></li>
             <li><a routerLink="astuces" routerLinkActive="active">Astuces </a></li>
             <li><a routerLink="prestations" routerLinkActive="active"> Mes prestations </a></li>
+            <li><a routerLink = "avis-clients" routerLinkActive="active"> Avis clients</a></li>
             <li><a routerLink="contact" routerLinkActive="active"> Contact</a></li>
         </ul>
 
@@ -40,4 +41,5 @@
         </ul>
 
     </section>
+    
 </footer>

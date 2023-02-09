@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { AuthService } from 'src/app/_services/auth.service';
 
 
@@ -7,8 +8,7 @@ import { AuthService } from 'src/app/_services/auth.service';
   templateUrl: './inscription.component.html',
   styleUrls: ['./inscription.component.css']
 })
-export class InscriptionComponent implements OnInit {
-
+export class InscriptionComponent  {
   
   form: any = {
     name:null,
@@ -22,7 +22,11 @@ export class InscriptionComponent implements OnInit {
   errorMessage= "";
   
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService,
+              private fb: FormBuilder) { }
+           
+              
+              
 
   onSubmit():void{
     const {name,email,password,confirmPassword} = this.form;
@@ -32,7 +36,7 @@ export class InscriptionComponent implements OnInit {
         console.log(data);
         this.isSuccessful = true;
         this.isSignupFailed = false;
-        
+        window.location.href="connexion"
       },
       err => {
         console.error(err);
@@ -44,10 +48,11 @@ export class InscriptionComponent implements OnInit {
     )
   }
 
+  hide : boolean = true;
 
-  ngOnInit(): void {
+  myFunction() {
+    this.hide = !this.hide;
   }
-
 
 
   

@@ -1,10 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const Comment = require("../models/Comment");
-const auth = require("../midldlewares/auth")
+const auth = require("../middlewares/auth")
 
 
-router.post("/new-comment",auth , async(req, res)=>{
+router.post("/new-comment", async(req, res)=>{
 
     try{
         const comment = new Comment(req.body);
@@ -46,7 +46,7 @@ router.get("/:id", async (req,res) => {
     }
 })
 
-router.put("/update/:id", auth,async (req,res) =>{
+router.put("/update/:id",async (req,res) =>{
     try {
         const comment = await Comment.findById(req.params.id)
        if (!comment) {

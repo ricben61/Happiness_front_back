@@ -2,17 +2,21 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthInterceptorProviders } from './_helper/auth.interceptor';
+import {PaginationModule} from 'ngx-bootstrap/pagination'
+import * as fr from '@angular/common/locales/fr'
+
+
 //componemts//
 import { FooterComponent } from './components/footer/footer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
-// pages//
+// pages de Components//
 import { AccueilComponent } from './components/pages/accueil/accueil.component';
 import { ContactComponent } from './components/pages/contact/contact.component';
 import { PrestationsComponent } from './components/pages/prestations/prestations.component';
@@ -25,6 +29,10 @@ import { AvisClientsComponent } from './components/pages/avis-clients/avis-clien
 import { UserIndexComponent } from './components/pages/user-index/user-index.component';
 import { AvisClientsUpdateComponent } from './components/pages/avis-clients-update/avis-clients-update.component';
 import { UserEditComponent } from './components/pages/user-edit/user-edit.component';
+import { ContactListComponent } from './components/pages/contact-list/contact-list.component';
+import { registerLocaleData } from '@angular/common';
+
+
 
 
 
@@ -49,6 +57,8 @@ import { UserEditComponent } from './components/pages/user-edit/user-edit.compon
     UserIndexComponent,
     AvisClientsUpdateComponent,
     UserEditComponent,
+    ContactListComponent,
+    
     
     
   ],
@@ -63,7 +73,8 @@ import { UserEditComponent } from './components/pages/user-edit/user-edit.compon
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule,
+    PaginationModule,
+   
 
     
     
@@ -72,4 +83,8 @@ import { UserEditComponent } from './components/pages/user-edit/user-edit.compon
   providers: [AuthInterceptorProviders],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(){
+    registerLocaleData(fr.default)
+  }
+ }

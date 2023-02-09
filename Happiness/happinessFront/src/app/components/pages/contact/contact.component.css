@@ -5,9 +5,7 @@
     width: 100%;
     box-sizing: border-box;
   }
-  
   main {
-    
     padding:7vh 5vw ;
     background-color: white;
    
@@ -69,7 +67,9 @@
         
         font-style: italic;
     }
-    
+    #email::placeholder{
+        font-style:italic;
+    }
     
     input{
         width: 80%;
@@ -95,7 +95,7 @@
     }
     #sujet{
         width: 80%;
-        height: 20vh;
+        height: 15vh;
         text-align: center;
         border-radius: 10px 10px 0 0;
         background-color: rgba(153, 153, 153, 0.401);
@@ -171,7 +171,17 @@
         
         font-style: italic;
     }
-    
+    #email::placeholder{
+        font-style: italic;
+    }
+    #email{
+        padding: 0%;
+        margin: auto;
+        border-radius: 0%;
+    }
+    #divEmail{
+        margin: auto;
+    }
     
     input{
         width: 80%;
@@ -180,6 +190,8 @@
         border: 0;
         border-bottom: solid 1px black;
     }
+
+
     #question{
         width: 80%;
         background-color:#BAD2B0;
@@ -197,7 +209,7 @@
     }
     #sujet{
         width: 80%;
-        height: 20vh;
+        height: 15vh;
         text-align: center;
         border-radius: 10px 10px 0 0;
         background-color: rgba(153, 153, 153, 0.401);

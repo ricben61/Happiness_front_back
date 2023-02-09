@@ -28,12 +28,13 @@ export class NavbarComponent implements OnInit {
         this.isLoggedIn= true;
         this.admin= this.tokenStorage.getUser().admin
         this.user=this.tokenStorage.getUser()
+               
       }
     }
       
     logOut():void{
       this.tokenStorage.signOut();
-      window.location.reload();
+      window.location.href = 'accueil';
     }
   
   }

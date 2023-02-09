@@ -37,7 +37,7 @@ export class UserEditComponent implements OnInit {
       
   ngOnInit(): void {
     this.id=String(this.route.snapshot.paramMap.get('id'));
-    console.log(this.id);
+    // console.log(this.id);
     this.getUser(this.id);
     
   }
@@ -45,7 +45,7 @@ export class UserEditComponent implements OnInit {
   public getUser(id:string){
     this.userService.getUser(id).subscribe(user => {
       this.user = user;
-      console.log('user', user, this.user)
+      // console.log('user', user, this.user)
       this.form._id = user._id;
       this.form.name = user.name;
       this.form.email = user.email;
@@ -60,9 +60,10 @@ export class UserEditComponent implements OnInit {
     
     this.userService.updateUser(this.id,name, isAdmin).subscribe(
       data => {
-        console.log(data);
+        // console.log(data);
         this.isSuccessful = true;
         this.isUpdateFailed = false;
+        window.location.href = 'user-index';
       },
       err => {
         console.error(err);

@@ -17,10 +17,11 @@ export class UserService {
 
   constructor(private http:HttpClient) { }
   
-   //! toutes ces routes sont sécurisées dans le back : pour y accéder, l'utilisateur connecté devra avoir un token qui contient l'information isAdmin = true
+   //! toutes ces routes sont sécurisées dans le back : pour y accéder,
+    //! l'utilisateur connecté devra avoir un token qui contient l'information isAdmin = true
   //cette méthode récupère un user par son id
-  getUser(id: string): Observable<User> {
-    const user = this.http.get<User>(USER_API + id);
+  getUser(id: string): Observable<any> {
+    const user = this.http.get<User>(USER_API+`${id}`);
     return user;
   }
 
@@ -33,7 +34,11 @@ export class UserService {
   //cette méthode envoie une requête vers user/update avec un body qui contient un login et un booléen représentant la valeur de isAdmin. Le back reconnaitra l'url et si le token le permet, l'utilisateur sera modifié dans la bdd avec ces nouvelles valeurs
   //! on choisit de ne pas modifier l'email : si on veut le faire, le back devra d'abord tester si l'email n'est pas utilisé par un autre user...
   updateUser(id: string, name: string, isAdmin: boolean): Observable<User> {
-    return this.http.put<User>(USER_API + "update/" + id, {name, isAdmin}, httpOptions);
+    return this.http.put<User>(USER_API +`update/${id}`,{name, isAdmin}, httpOptions);
+  }
+
+  deleteUser(id: string): Observable<any> {
+    return this.http.delete<any>(USER_API+`delete/${id}`);
   }
 
 

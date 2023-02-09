@@ -196,7 +196,7 @@ h2 {
   box-shadow: 1px 1px 10px black;
 }
 .coaching:hover {
-  transform: scale(1.8);/*pour grossir l'élement de 1.8 fois au passage de la souris*/
+  transform: scale(1.4);/*pour grossir l'élement de 1.8 fois au passage de la souris*/
   transition: 0.5s; /*un timing pour pas que ça grossisse trop vite*/
   margin-left: 150px;
   margin-top: 150px;
@@ -216,7 +216,7 @@ h2 {
   box-shadow: 1px 1px 10px black;
 }
 .access:hover {
-  transform: scale(1.8);
+  transform: scale(1.4);
   transition: 0.5s;
   margin-top: 150px;
 }
@@ -235,7 +235,7 @@ h2 {
   box-shadow: 1px 1px 10px black;
 }
 .eft:hover {
-  transform: scale(1.8);
+  transform: scale(1.4);
   transition: 0.5s;
   margin-top: 150px;
 }
@@ -254,7 +254,7 @@ h2 {
   box-shadow: 1px 1px 10px black;
 }
 .entretien:hover {
-  transform: scale(1.8);
+  transform: scale(1.4);
   transition: 0.5s;
   margin-right: 150px;
   margin-top: 150px;
@@ -278,7 +278,7 @@ h2 {
   box-shadow: 1px 1px 10px black;
 }
 .forfait:hover {
-  transform: scale(1.7);
+  transform: scale(1.4);
   transition: 0.5s;
   margin-top: -300px;
 }

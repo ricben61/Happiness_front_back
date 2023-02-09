@@ -49,8 +49,27 @@ hr {
   margin-right: 5px;
   margin-left: 5px;
 }
+
+#top-btn {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  font-size: 30px;
+  border-radius: 20px;
+  background-color: rgba(243, 240, 240, 0.67);
+  outline: none;
+  z-index: 99 !important;
+  cursor: pointer;
+}
+
+
+
 @media screen and (max-width: 800px) {
-   ul {
+  footer{
+    width: auto;
+  }
+  
+  ul {
     display: grid; /*pour faire deux colonnes et faciliter le responsive*/
     grid-template-columns: repeat(2, 1fr);
     padding-left: 0;

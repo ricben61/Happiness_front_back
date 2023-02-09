@@ -27,32 +27,50 @@
     <div class="contacter">
             <h1>Nous contacter</h1>
 
-        <form>
+        <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate> 
 
           <label for="nom">Nom</label>
-          <input type="text" id="nom" name="nom" placeholder="votre Nom..">
-       
-
-        
+          <input type="text" id="nom" name="nom" [(ngModel)]="form.nom" required minlength="3"
+          maxlength="20" #nom="ngModel" placeholder="votre Nom..">
           <label for="prenom">Prénom</label>
-          <input type="text" id="prenom" name="prenom" placeholder="votre prenom..">
-        
+          <input type="text" id="prenom" name="prenom"[(ngModel)]="form.prenom" required minlength="3"
+          maxlength="20" #prenom="ngModel" placeholder="votre prénom">
 
-        
+          <div class="form-group" id="divEmail" >
+            <label for="email">adresse email:</label>
+            <input id="email" name="email" type="email"  [(ngModel)]="form.email"
+                required email #email="ngModel" aria-describedby="emailHelp" placeholder="email">
+            <div class="alert-danger" *ngIf="email.errors && f.submitted">
+                <div *ngIf="email.errors['required']" style="color: crimson">L'email est obligatoire</div>
+                <div *ngIf="email.errors['email']" style="color: crimson">
+                    Adress email non valid
+                </div>
+            </div>
+        </div>
+
+
+
           <label for="question">Question</label>
-          <select id="question" name="question">
-            <option value="devis">Demande de rdv</option>
-            <option value="information">Demande d'information</option>
-            <option value="analyse">Demande d'analyse</option>
-            <option value="autre">Autre demande</option>
+          <select id="question" name="question" [(ngModel)]="form.question" required 
+           #question="ngModel" >
+            <option value="Demande de rdv">Demande de rdv</option>
+            <option value="Demande d'information">Demande d'information</option>
+            <option value="Demande d'analyse">Demande d'analyse</option>
+            <option value="Autre demande">Autre demande</option>
           </select>
-      
-          <label for="sujet">Sujet</label>
-          <textarea id="sujet" name="sujet" placeholder="détail de votre demande.." ></textarea>
-      
+          <label for="sujet">Message</label>
+          <textarea id="sujet" name="message" [(ngModel)]="form.message" placeholder="détail de votre demande.." ></textarea>
           <input class="submit" type="submit" value="Envoyer">
-        
+
+
+          <div class="alert alert-warning" *ngIf="f.submitted && !isPublished">
+            message echoué!<br />{{ errorMessage }}
+          </div>
+
         </form>
+        <div class="alert alert-success" *ngIf="f.submitted && isPublished">
+          Votre message a bien été publier!
+        </div>
       </div>
 
       

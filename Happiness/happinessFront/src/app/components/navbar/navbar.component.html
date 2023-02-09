@@ -1,77 +1,68 @@
 <nav>
-      
-        <section class="menuCachet">
-          <article class="down">
 
+  <section class="menuCachet">
+    <article class="down">
+      <button class="btn">Menu☰</button>
+      <article class="down-content"> <!--div pour le menu cachet-->
+        <ul>
+          <li><a routerLink="accueil" routerLinkActive="active"> Accueil </a></li>
+          <li><a routerLink="monparcours" routerLinkActive="active"> Mon parcours </a></li>
+          <li><a routerLink="outils-et-methodes" routerLinkActive="active"> Outils et methodes</a></li>
+          <li><a routerLink="astuces" routerLinkActive="active">Astuces </a></li>
+          <li><a routerLink="prestations" routerLinkActive="active"> Mes prestations </a></li>
+          <li><a routerLink="avis-clients" routerLinkActive="active"> Avis clients</a></li>
+          <li><a routerLink="contact" routerLinkActive="active"> Contact</a></li>
+          <li><a routerLink="connexion" routerLinkActive="active" *ngIf="isLoggedIn==false"> Connexion</a></li>
+          <li><a routerLink="inscription" routerLinkActive="active" *ngIf="isLoggedIn==false"> Inscription</a></li>
+        </ul>
+      </article>
+    </article>
+    <section id="nameConnexion" class="dropdown show" *ngIf="isLoggedIn">
+      <a class=" dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        bienvenu {{ user.name }}.
+      </a>
+      <article class="dropdown-menu " aria-labelledby="dropdownMenuLink" >
+              <li *ngIf="this.admin"  ><a routerLink="user-index" routerLinkActive="active"> Gestion des utilisateurs</a></li>
+              <li *ngIf="this.admin"  ><a routerLink="contact-list" routerLinkActive="active"> Gestion des messages</a></li>
+        <button class="dropdown-item" (click)="logOut()">Deconnecter</button>
+      </article>
+    </section>
 
-
-            <button  class="btn">Menu☰</button>
-            <article class="down-content"> <!--div pour le menu cachet-->
-              
-                <ul>
-                  <li><a routerLink = "accueil"routerLinkActive="active" > Accueil </a></li>
-                  <li><a routerLink = "monparcours" routerLinkActive="active"> Mon parcours </a></li>
-                  <li><a routerLink = "outils-et-methodes" routerLinkActive="active"> Outils et methodes</a></li>
-                  <li><a routerLink = "astuces" routerLinkActive="active">Astuces </a></li>
-                  <li><a routerLink = "prestations" routerLinkActive="active"> Mes prestations </a></li>
-                  <li><a routerLink = "contact" routerLinkActive="active"> Contact</a></li>
-                  <li><a routerLink = "connexion" routerLinkActive="active" *ngIf="isLoggedIn==false"> Connexion</a></li>
-                  <li><a routerLink = "inscription" routerLinkActive="active" *ngIf="isLoggedIn==false"> Inscription</a></li>
-                </ul>                                                    
-                    
-            </article>
-
-          </article>
-          <div id="nameConnexion" class="dropdown show"  *ngIf="isLoggedIn" >
-            <a class=" dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              bienvenu {{ user.name }}.
-            </a>
-          
-            <div class="dropdown-menu  " aria-labelledby="dropdownMenuLink">
-              <button class="dropdown-item" (click)="logOut()">Deconnecter</button>
-              
-            </div>
+  </section>
+  <section class="menu"> <!--menu qui apparaitra quand l'écran sera plus grand-->
+    <ul>
+      <li><a routerLink="accueil" routerLinkActive="active"> Accueil </a></li>
+      <li><a routerLink="monparcours" routerLinkActive="active"> Mon parcours </a></li>
+      <li><a routerLink="outils-et-methodes" routerLinkActive="active"> Outils et méthodes </a></li>
+      <li><a routerLink="astuces" routerLinkActive="active">Astuces </a></li>
+      <li><a routerLink="prestations" routerLinkActive="active"> Mes prestations </a></li>
+      <li><a routerLink="avis-clients" routerLinkActive="active"> Avis clients</a></li>
+      <li><a routerLink="contact" routerLinkActive="active"> Contact</a></li>
+      <li>
+        <div class="dropdown show" *ngIf="isLoggedIn==false">
+          <a class=" dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Connexion
+          </a>
+          <div class="dropdown-menu  " aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" routerLink="connexion" routerLinkActive="active"> Connexion</a>
+            <a class="dropdown-item" routerLink="inscription" routerLinkActive="active"> Inscription</a>
           </div>
+        </div>
 
-        </section> 
-        
-
-
-              
-  <div class="menu"> <!--menu qui apparaitra quand l'écran sera plus grand-->
-              <ul>
-
-                <li><a routerLink = "accueil" routerLinkActive="active"> Accueil </a></li> 
-                <li><a routerLink = "monparcours" routerLinkActive="active"> Mon parcours </a></li> 
-                <li><a routerLink = "outils-et-methodes" routerLinkActive="active"> Outils et méthodes </a></li>
-                <li><a routerLink = "astuces" routerLinkActive="active">Astuces </a></li>  
-                <li><a routerLink = "prestations" routerLinkActive="active" > Mes prestations </a></li>
-                <li><a routerLink = "prestations" routerLinkActive="active" > Mes prestations </a></li>  
-                <li><a routerLink = "avis-clients" routerLinkActive="active"> Avis clients</a></li>
-                <li>
-                <div class="dropdown show"  *ngIf="isLoggedIn==false" >
-                  <a class=" dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                   Connexion
-                  </a>
-                  <div class="dropdown-menu  " aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" routerLink = "connexion" routerLinkActive="active"> Connexion</a>
-                    <a class="dropdown-item" routerLink = "inscription" routerLinkActive="active"> Inscription</a>
-                  </div>
-                </div>
-
-                <div class="dropdown show"  *ngIf="isLoggedIn" >
-                  <a class=" dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    bienvenu {{ user.name }}.
-                  </a>
-                
-                  <div class="dropdown-menu  " aria-labelledby="dropdownMenuLink">
-                    <li  ><a routerLink = "user-index" routerLinkActive="active"> Gestion des utilisateurs</a></li>
-                    <button class="dropdown-item" *ngIf="isLoggedIn" (click)="logOut()">Deconnecter</button>
-                    
-                  </div>
-                </div>
-              
-              </li>
-              </ul>
-  </div>
+        <div class="dropdown show" *ngIf="isLoggedIn">
+          <a class=" dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            bienvenu {{ user.name }}.
+          </a>
+          <div class="dropdown-menu  " aria-labelledby="dropdownMenuLink">
+              <li *ngIf="this.admin"  ><a routerLink="user-index" routerLinkActive="active"> Gestion des utilisateurs</a></li>
+              <li *ngIf="this.admin"  ><a routerLink="contact-list" routerLinkActive="active"> Gestion des messages</a></li>
+              <button class="dropdown-item" *ngIf="isLoggedIn" (click)="logOut()">Deconnecter</button>
+         </div>
+        </div>
+      </li>
+    </ul>
+  </section>
 </nav>

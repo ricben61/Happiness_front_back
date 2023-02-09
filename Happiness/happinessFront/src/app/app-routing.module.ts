@@ -1,4 +1,4 @@
-import { Component, NgModule } from '@angular/core';
+import {  NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AccueilComponent } from './components/pages/accueil/accueil.component';
 import { AstucesComponent } from './components/pages/astuces/astuces.component';
@@ -12,72 +12,39 @@ import { AvisClientsComponent } from './components/pages/avis-clients/avis-clien
 import { UserIndexComponent } from './components/pages/user-index/user-index.component';
 import { UserEditComponent } from './components/pages/user-edit/user-edit.component';
 import { AvisClientsUpdateComponent } from './components/pages/avis-clients-update/avis-clients-update.component';
+import { ContactListComponent } from './components/pages/contact-list/contact-list.component';
+
 
 const routes: Routes = [
 
   { path: '', pathMatch: "full", redirectTo: '/accueil' },
-  {
-    path:'accueil', 
-   component: AccueilComponent
-  },
-   {
-    path:'monparcours',
-    component:MonparcoursComponent
-   },
-   {
-    path:'astuces',
-    component:AstucesComponent
-   },
-   {
-   path:'outils-et-methodes',
-   component:OutilsEtMethodesComponent
-  },
-   {
-    path:'contact',
-    component:ContactComponent
-   },
-   
-   {
-    path:'prestations',
-    component:PrestationsComponent
-   },
-   {
-    path:'connexion',
-    component:ConnexionComponent
-   },
-   {
-    path:'inscription',
-    component:InscriptionComponent
-   },
-   {
-    path:'avis-clients',
-    component:AvisClientsComponent
-   },
-   {
-   path:'user-index',
-   component:UserIndexComponent
-   },
-   {
-    path:'user-edit/:id',
-    component:UserEditComponent
-   },
-   {
-    path:'avis-clients-update/:id',
-    component:AvisClientsUpdateComponent
-   }
-   
+  { path: 'accueil', component: AccueilComponent },
+  { path: 'monparcours', component: MonparcoursComponent },
+  { path: 'astuces',  component: AstucesComponent },
+  { path: 'outils-et-methodes', component: OutilsEtMethodesComponent },
+  { path: 'contact', component: ContactComponent },
+  { path: 'prestations', component: PrestationsComponent },
+  { path: 'connexion', component: ConnexionComponent },
+  { path: 'inscription', component: InscriptionComponent },
+  { path: 'avis-clients', component: AvisClientsComponent },
+  { path: 'user-index', component: UserIndexComponent },
+  { path: 'user-edit/:id', component: UserEditComponent },
+  { path: 'avis-clients-update/:id', component: AvisClientsUpdateComponent },
+  { path: 'contact-list', component: ContactListComponent },
+ 
+
 ]
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
-    
+
     scrollPositionRestoration: 'enabled', //pour enlever la memoire scroll de la page et de permettre d'arriver en haut de page//
-    anchorScrolling:'enabled',
+    anchorScrolling: 'enabled',
     scrollOffset: [0, 64] // [x, y]
-    
+
   }
-    
-    )],
+
+  )],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

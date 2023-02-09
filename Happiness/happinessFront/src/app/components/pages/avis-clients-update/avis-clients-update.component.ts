@@ -1,4 +1,5 @@
 import { NgIfContext } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 import { Component, Input, TemplateRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AvisClients } from 'src/app/models/avisclients.model';
@@ -12,9 +13,7 @@ import { UserService } from 'src/app/_services/user.service';
   templateUrl: './avis-clients-update.component.html',
   styleUrls: ['./avis-clients-update.component.css']
 })
-export class AvisClientsUpdateComponent  {
-
- 
+export class AvisClientsUpdateComponent  { 
   
   //on définit les variables nécessaires :
   //form contiendra les valeurs entrées dans le formulaire
@@ -31,7 +30,7 @@ errorMessage = '';
 //idUser stockera l'id du user connecté
 idUser = '';
 //id stockera l'id du post qui est en cours de modification
-id:string = '';
+_id:string = '';
 //post contiendra le post en cours de modification et ses propriétés, récupérés depuis le back
 @Input() AvisClients?: AvisClients
 // user contiendra les informations sur le user connecté, récupérées dans sessionStorage
@@ -39,28 +38,42 @@ id:string = '';
 // author contiendra les informations sur l'auteur de post, récupérées depuis le back
 //!logiquement ces informations ne sont accessibles qu'à un admin. Si on veut autoriser un autre rôle à accéder à ces informations il faut le préciser en back
 @Input() author?: User
- 
+ avisclients: AvisClients[] = [];
+
 
   constructor( private tokenStorage: TokenStorageService,
                private AvisClientsService:AvisClientsService,
                private route:ActivatedRoute,
-               private userService: UserService) { }
+               private userService: UserService,
+              ) { }
 
   ngOnInit(): void {
+
+    this.getAvisClientsById(this._id);
+    
     if(this.tokenStorage.getUser().admin) {
       this.admin = true;
       this.user = this.tokenStorage.getUser();
     }
-    this.id = String(this.route.snapshot.paramMap.get('id'));
-    this.getAvisClientsById(this.id);
-    console.log(this.user);
+     if(this.tokenStorage.getUser()){
+      this.user=true;
+      this.author = this.tokenStorage.getUser().userId
+    }
+
+    this._id = String(this.route.snapshot.paramMap.get('id'));
+    
+    // console.log(this._id);
+    
   }
 
   //cette méthode permet de récupérer un post par son id grâce au PostService et lance aussi la récupération de l'auteur avec getAuthor() (voire plus bas). Les informations récupérées sont stockées dans this.form
-   getAvisClientsById(id: string) {
-    this.AvisClientsService.getAvisClientsById(id).subscribe(AvisClients => {
+   getAvisClientsById(_id: string) {
+    this.AvisClientsService.getAvisClientsById(_id).subscribe(AvisClients => {
       this.AvisClients = AvisClients;
-      console.log(AvisClients);
+      
+      // console.log(AvisClients.description);
+      // console.log(this.avisclients);
+      
       this.getAuthor(AvisClients.author)
       this.form.userName = AvisClients.userName;
       this.form.description = AvisClients.description;
@@ -84,10 +97,11 @@ id:string = '';
   onSubmit(): void {
     if(this.user && this.author && this.user.id === this.author._id ){
       const {userName, description } = this.form;
-      this.AvisClientsService.updateAvisclients(this.id,userName,description).subscribe(
+      this.AvisClientsService.updateAvisclients(this._id,userName,description).subscribe(
         data => {
           console.log(this.form);
           this.isPublished = true;
+          window.location.href = 'avis-clients';
         },
         err => {
           this.errorMessage = err.error.message;
@@ -97,8 +111,6 @@ id:string = '';
     } else {
       this.errorMessage = "Vous n'êtes pas autorisé à modifier cet article";
     }
-     
-   
   }
 
 

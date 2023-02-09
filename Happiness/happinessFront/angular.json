@@ -25,7 +25,10 @@
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css",
-              "material-icons/iconfont/material-icons.css"
+              "material-icons/iconfont/material-icons.css",
+              "node_modules/bootstrap/scss/bootstrap-grid.scss",
+              "node_modules/bootstrap/scss/bootstrap-reboot.scss",
+              "node_modules/bootstrap/scss/bootstrap.scss"
               
               
        

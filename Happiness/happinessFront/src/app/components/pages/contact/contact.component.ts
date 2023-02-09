@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ContactService } from 'src/app/_services/contact.service';
 
 @Component({
   selector: 'app-contact',
@@ -7,9 +8,46 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
 
-  constructor() { }
+  form: any = {
+    nom: null,
+    prenom: null,
+    email: null,
+    question: null,
+    message: null
+  };
 
-  ngOnInit(): void {
+  isPublished = true;
+
+  errorMessage = "";
+  loading: boolean = false;
+
+
+
+  constructor(private ContactService: ContactService) { }
+
+  ngOnInit(): void {}
+
+
+  onSubmit(): void {
+    const { nom, prenom, email, question, message } = this.form
+    this.ContactService.postContact(nom, prenom, email, question, message).subscribe(
+      data => {
+        location.reload();
+        this.isPublished = true;
+        
+
+      },
+      err => {
+        console.error(err);
+
+        this.errorMessage = err.error.message;
+        this.isPublished = false;
+      }
+    )
   }
+
+
+
+
 
 }

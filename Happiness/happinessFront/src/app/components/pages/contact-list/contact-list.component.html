@@ -1,0 +1,33 @@
+<main class="maintableauContat">
+    <section class="tableauContact">
+        <div *ngIf="admin else elseBlock">
+            <h2>Liste des messages</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>nom</th>
+                        <th>prénom</th>
+                        <th>email</th>
+                        <th>question</th>
+                        <th>message</th>
+                        <th>action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let contact of contact ">
+                        <td>{{contact.nom}}</td>
+                        <td>{{contact.prenom}}</td>
+                        <td><a href="mailto:{{contact.email}}?subject=re-{{contact.question}}&body=Votre message: ({{contact.message}}) ">{{contact.email}}</a></td>
+                        <td>{{contact.question}}</td>
+                        <td><textarea>{{contact.message}}</textarea></td>
+                        <td><button onclick='return confirm("Êtes-vous sûr de vouloir supprimer?")' type="submit"
+                            class="btnSuppContact" (click)="deleteContact(contact._id)" >Supprimer</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <ng-template #elseBlock>
+            <div class="alert alert-danger">vous n'etes pas admin</div>
+        </ng-template>
+    </section>
+</main>

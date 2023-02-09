@@ -1,17 +1,68 @@
 .maintableauUsers{
-    height: 90vh;
+    height:90vh;
     padding: 10vh 4vw;
 }
 
-.tableauUsers{
-    width: 90%;
-    background-color:#BAD2B0;
-    border-radius: 10px;
-    margin: auto;
-}
-h2{
-    text-align: center;
-    padding-top: 10px;
-}
+
+  @media screen and (max-width: 800px){
+   
+    
+    .tableauUsers{
+        width: 95%;
+        background-color:#BAD2B0;
+        border-radius: 10px;
+        margin: auto;
+        font-size: 80%;
+        text-align: center;
+    }
+    h2{
+        text-align: center;
+        padding-top: 10px;
+    }
+    .action{
+        padding-left:45px ;
+    }
+    
+    .btnSuppUser {
+        background-color: rgb(237, 104, 130);
+        border-radius: 15px;
+        padding: 0.10rem;
+        margin-left: 10px;
+        
+      }
+  }
+  @media screen and (min-width: 800px){
+
+   
+    .tableauUsers{
+        width: 75%;
+        background-color:#BAD2B0;
+        border-radius: 10px;
+        margin: auto;
+    }
+    h2{
+        text-align: center;
+        padding-top: 10px;
+    }
+    .action{
+        padding-left:45px ;
+    }
+    
+    .btnSuppUser {
+        background-color: rgb(237, 104, 130);
+        border-radius: 15px;
+        padding: 0.10rem;
+        margin-left: 10px;
+        
+      }
+     
+
+  }
+
+
+
+
+
+
 
 

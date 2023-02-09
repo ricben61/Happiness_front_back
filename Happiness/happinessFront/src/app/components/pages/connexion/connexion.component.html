@@ -17,24 +17,22 @@
         <div class="motdepasseConnexion form-group">
             <label for="password">Mot de passe:</label>
             <div>
-                <input name="password" id="myInput" type="password" class="inputConnexion" placeholder="Mot de passe"
-                    name="password" [(ngModel)]="form.password" required minlength="6" #password="ngModel">
+                <input name="password" id="myInput" [type]="hide ? 'password' : 'text'" class="inputConnexion" placeholder="Mot de passe"
+                    name="password" [(ngModel)]="form.password" required minlength="6" maxlength="20" #password="ngModel">
                 <div class="alert alert-danger" role="alert" *ngIf="password.errors && f.submitted">
                     <div *ngIf="password.errors['required']">mot de passe obligatoire</div>
                     <div *ngIf="password.errors['minlength']">
                         le mot de passe dois contenir 6 carateres au minimum
                     </div>
+                   
                 </div>
             </div>
-            <div
-            class="alert alert-danger"
-            role="alert"
-            *ngIf="f.submitted && isLoginFailed">
-            connexion echouée: {{ errorMessage }}
-          </div>
-            <input class="checkboxConnexion" type="checkbox" onclick="myFunction()"> Afficher le mot de passe
+            <div class="alert alert-danger" role="alert" *ngIf="f.submitted && isLoginFailed">
+                connexion echouée: {{ errorMessage }}
+            </div>
+            <input class="checkboxConnexion" type="checkbox" (click)="myFunction()"> Afficher le mot de passe
         </div>
         <button type="submit" class="submitConnexion">Connexion</button>
     </form>
-    
+
 </main>

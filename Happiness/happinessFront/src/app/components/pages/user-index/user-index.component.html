@@ -5,20 +5,19 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th>id</th>
                         <th>name</th>
                         <th>email</th>
                         <th>role</th>
-                        <th>action</th>
+                        <th class="action">action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let user of users ">
-                        <td>{{user._id}}</td>
                         <td>{{user.name}}</td>
                         <td>{{user.email}}</td>
                         <td>{{user.isAdmin ? 'admin' : 'user'}}</td>
-                        <td><a routerLink="../user-edit/{{user._id}}">edit</a></td>
+                        <td><a routerLink="../user-edit/{{user._id}}">modifier</a><button onclick='return confirm("Êtes-vous sûr de vouloir supprimer?")' type="submit"
+                            class="btnSuppUser"  (click)="deleteUser(user._id)" >Supprimer</button></td>
                     </tr>
                 </tbody>
             </table>

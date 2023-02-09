@@ -1,177 +1,161 @@
-
 .mainAvisClients {
-    padding: 10vh 5vw;
-    display: grid;
+  padding: 10vh 5vw;
+  min-height: 95vh;
+  display: grid;
+
+}
+#top-btn {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  font-size: 30px;
+  border-radius: 20px;
+  background-color: rgba(243, 240, 240, 0.67);
+  outline: none;
+  z-index: 99 !important;
+  cursor: pointer;
+}
+
+.H2avisClient {
+  text-align: center;
+}
+
+.gridCom {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   
+
+}
+
+.globCom {
+  width: 95%;
+  margin: auto;
+  border-radius: 15px;
+  background-color: #BAD2B0;
+  margin: 15px;
+  text-align: center;
+  box-shadow: 1px 1px 10px black;
+}
+
+.bouttonCommentaire {
+  width: 100%;
+  display: flex;
+  margin-bottom: 15px;
+  justify-content: space-around;
+}
+
+.descriptionCom {
+  margin: 15px;
+}
+
+.descriptionCom textarea {
+  resize: none;
+  border: none;
+  background-color: #BAD2B0;
+  text-align: center;
+}
+
+.btnModifComAvisClients {
+  background-color: rgb(83, 118, 221);
+  border-radius: 15px;
+  padding: 0.50rem;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.btnSuppComAvisClients {
+  background-color: rgb(237, 104, 130);
+  border-radius: 15px;
+  padding: 0.50rem;
+}
+
+.globPosterCom {
+  width: 100%;
+}
+
+.posterCommentaireavisClients {
+  width: 60%;
+  text-align: center;
+  border-radius: 15px;
+  background-color: #BAD2B0;
+  margin: auto;
+  text-align: center;
+  box-shadow: 1px 1px 10px black;
+}
+
+.formAvisClients {
+  width: 70%;
+  margin: auto;
+}
+
+input.form-control {
+  margin-bottom: 25px;
+  background-color: #BAD2B0;
+  border: 0;
+  border-radius: 0;
+  border-bottom: 1px solid black;
+  text-align: center;
+}
+
+.descrptionCommentaire {
+  width: 100%;
+  height: 20vh;
+  text-align: center;
+  background-color: #BAD2B0;
+  margin-bottom: 10px;
+}
+.btnPosterAvisClients{
+  margin-bottom: 20px;
+  padding: 5px;
+  border-radius: 10px;
+  background-color: rgb(83, 118, 221);
+}
+
+@media screen and (max-width: 800px) {
+
+  .mainAvisClients {
+    display: block;
   }
-  .H2avisClient {
-    text-align: center;
-  }
-  
   .gridCom {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-  
+    display: block;
   }
   .globCom {
     width: 95%;
     margin: auto;
     border-radius: 15px;
     background-color: #BAD2B0;
-    margin: 15px;
+    margin-top: 15px;
     text-align: center;
+    box-shadow: 1px 1px 10px black;
   }
   .bouttonCommentaire {
     width: 100%;
     display: flex;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
+    padding-bottom: 15px;
     justify-content: space-around;
-  }
-  .descriptionCom {
-    margin: 15px;
   }
   .descriptionCom textarea {
     resize: none;
     border: none;
+    width: 200px;
     background-color: #BAD2B0;
     text-align: center;
   }
-  .BtnModCom {
-    display: inline-block;
-  }
-  .BtnSuppCom {
-    display: inline-block;
-  }
-  .titreRechecheAvisClients {
-    display: flex;
-    text-align: center;
-    justify-content: space-around;
-  
-  }
-  
+ 
+
   .posterCommentaireavisClients {
-    width: 100%;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .PosterCommentaires {
-    width: 40%;
-    margin-left: 15px;
-  }
-  
-  .paginationavisClients {
-    margin-right: 15px;
-  }
-  
-  .btnModifComAvisClients {
-    background-color: rgb(83, 118, 221);
+    width: 95%;
+    text-align: center;
     border-radius: 15px;
-    padding: 0.50rem;
-  }
-  
-  .btnSuppComAvisClients {
-    background-color: rgb(237, 104, 130);
-    border-radius: 15px;
-    padding: 0.50rem;
-  }
-  
-  .popup {
-    position: absolute;
-    z-index: 9999;
+    background-color: #BAD2B0;
     margin: auto;
+    margin-top: 15px;
+    text-align: center;
+    box-shadow: 1px 1px 10px black;
   }
-  
-  @media screen and (max-width: 800px) {
-  
-    .mainAvisClients {
-      display: block;
-  
-    }
-  
-    .gridCom {
-      display: block;
-    }
-  
-    .globCom {
-      width: 95%;
-      margin: auto;
-      border-radius: 15px;
-      background-color: #BAD2B0;
-      margin: 15px;
-      text-align: center;
-  
-    }
-  
-    .bouttonCommentaire {
-      width: 100%;
-      display: flex;
-      margin-bottom: 5px;
-      padding-bottom: 15px;
-      justify-content: space-around;
-    }
-  
-    .descriptionCom textarea {
-      resize: none;
-      border: none;
-      width: 200px;
-      background-color: #BAD2B0;
-      text-align: center;
-    }
-  
-    .BtnModCom {
-      display: inline-block;
-    }
-  
-    .BtnSuppCom {
-      display: inline-block;
-    }
-  
-    .titreRechecheAvisClients {
-      display: flex;
-      text-align: center;
-      justify-content: space-around;
-  
-    }
-  
-    .h2avisClients {
-      display: inline-block;
-  
-    }
-  
-    .posterCommentaireavisClients {
-  
-      display: block;
-      justify-content: space-between;
-    }
-  
-    .PosterCommentaires {
-      width: 200px;
-      margin-left: 15px;
-    }
-  
-    .descrptionCommentaire {
-      width: 350px;
-    }
-  
-    .btnModifComAvisClients {
-      background-color: rgb(83, 118, 221);
-      border-radius: 15px;
-    }
-  
-    .btnSuppComAvisClients {
-      background-color: rgb(237, 104, 130);
-      border-radius: 15px;
-    }
-  
-    .paginationavisClients {
-      width: 250px;
-    }
-  
-    .page-link {
-      padding: 0.5vh;
-      size: 1.5vh;
-    }
-  }
-  
+
+}

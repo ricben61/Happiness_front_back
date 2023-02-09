@@ -47,6 +47,24 @@
     padding-bottom: 0;
   
   }
+  .voirMdp{
+    display: flex;
+    width: 50%;
+    margin: auto;
+    padding-bottom: 20px;
+    
+  }
+
+  .chekmdp{
+    width: 7%;
+    
+    
+  }
+  .pVoir{
+    width: 90%;
+    text-align: start;
+  }
+
   
   .inputInscription {
     width: 100%;
@@ -60,7 +78,7 @@
   
   }
   
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 900px) {
   
     #sectionInscription {
       width: 80%;
@@ -105,4 +123,26 @@
       padding-bottom: 0;
   
     }
+    .voirMdp{
+      display: flex;
+      width: 80%;
+      margin: auto;
+      padding-bottom: 20px;
+      
+    }
+  
+    .chekmdp{
+      width: 12%;
+      
+      
+    }
+    .pVoir{
+      width: 90%;
+      text-align: start;
+    }
+
+
+
+
+
   }

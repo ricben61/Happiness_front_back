@@ -33,7 +33,7 @@ export class UserIndexComponent {
     this.loading = true;
     this.userService.getUsers().subscribe((data) => {
       this.users = data;
-      console.log(data);
+      // console.log(data);
     },
     (error) => {
       console.error('request failed with error',error.message);
@@ -43,4 +43,15 @@ export class UserIndexComponent {
       console.log('request completed');
     };
   }
+
+  deleteUser(id:string){
+    this.userService.deleteUser(id).subscribe()
+    location.reload();
+  }
+
+
+
+
+
+
 }
