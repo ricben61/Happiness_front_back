@@ -13,6 +13,7 @@ import { UserIndexComponent } from './components/pages/user-index/user-index.com
 import { UserEditComponent } from './components/pages/user-edit/user-edit.component';
 import { AvisClientsUpdateComponent } from './components/pages/avis-clients-update/avis-clients-update.component';
 import { ContactListComponent } from './components/pages/contact-list/contact-list.component';
+import { NotFoundComponent } from './components/pages/not-found/not-found.component';
 
 
 const routes: Routes = [
@@ -31,8 +32,8 @@ const routes: Routes = [
   { path: 'user-edit/:id', component: UserEditComponent },
   { path: 'avis-clients-update/:id', component: AvisClientsUpdateComponent },
   { path: 'contact-list', component: ContactListComponent },
- 
-
+  { path: 'notFound', component:NotFoundComponent},
+  { path: '**', redirectTo: 'notFound' }
 ]
 
 @NgModule({

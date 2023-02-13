@@ -4,12 +4,14 @@ import { Observable } from 'rxjs';
 import { AvisClients } from '../models/avisclients.model';
 import { environment } from 'src/environments/environment';
 
+
 const httpOptions = {
 
   Headers: new HttpHeaders({'Content-Type': 'application/json'})
 }
  const AVIS_API = environment.apiUrl + "avisclients/"
-@Injectable({
+
+ @Injectable({
   providedIn: 'root'
 })
 export class AvisClientsService {
@@ -31,7 +33,6 @@ export class AvisClientsService {
     const AvisClients = this.http.get<AvisClients>(`${AVIS_API}${_id}`);
     return AvisClients;
   }
-
   // cette méthode envoie une requête vers avis clients/new avec un body qui contient un title, un content et un author.
   //  Le back reconnaitra l'url et si le token le permet, un post sera créé dans la bdd
   createAvisclients(author:string,userName:string,description: string): Observable<AvisClients> {
@@ -44,10 +45,9 @@ export class AvisClientsService {
   updateAvisclients(id:string,userName: string, description: string): Observable<AvisClients> {
     return this.http.put<AvisClients>(AVIS_API+`update/${id}`,{userName,description});
   }
-
   deleteAvisClients(id: string): Observable<any> {
     return this.http.delete<any>(AVIS_API+`delete/${id}`);
   }
-
+  
 
 }

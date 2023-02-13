@@ -1,12 +1,12 @@
 <main class="mainAvisClients">
-  <button id="top-btn" *ngIf="showBtn$ | async"class="material-icons" (click)="gotoTop()"> arrow_upward </button>
+  <!-- <button id="top-btn" *ngIf="showBtn$ | async"class="material-icons" (click)="gotoTop()"> arrow_upward </button> -->
   <h2 class="H2avisClient">tous les avis clients</h2>
 
   <section class="gridCom" *ngIf="admin || !admin ">
 
 
     <section class="globCom" *ngFor="let avisclient of avisclients ">
-      <p>Avis laisser par {{avisclient.userName}} le {{avisclient.createdAt | date: ' dd/MM/yyyy à hh:mm:ss '}} </p>
+      <p>Avis laisser par {{avisclient.userName}} le {{avisclient.createdAt | timeAgo}} </p>
       
       
       <article class="descriptionCom"><textarea name="description" cols="60" rows="2">{{avisclient.description}}</textarea>

@@ -8,6 +8,7 @@ const Comment = require("../models/Comment");
 const AvisClients = require("../models/AvisClients");
 require("dotenv").config();
 
+const PRIVATE_KEY = process.env.PRIVATE_KEY
  
 //création d'un user ou inscription
 router.post("/register", async (req, res) => {
@@ -58,7 +59,7 @@ router.post("/login", async (req, res) => {
             email: user.email,
             isAdmin: user.isAdmin
         }
-        const token = jwt.sign(payload, process.env.PRIVATE_KEY, { expiresIn: '2hours' }); 
+        const token = jwt.sign(payload,PRIVATE_KEY, { expiresIn: '2hours' });  
         
         return res
             .status(200)

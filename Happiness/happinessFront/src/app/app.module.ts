@@ -31,8 +31,27 @@ import { AvisClientsUpdateComponent } from './components/pages/avis-clients-upda
 import { UserEditComponent } from './components/pages/user-edit/user-edit.component';
 import { ContactListComponent } from './components/pages/contact-list/contact-list.component';
 import { registerLocaleData } from '@angular/common';
+import { NotFoundComponent } from './components/pages/not-found/not-found.component';
+import { NgcCookieConsentModule } from 'ngx-cookieconsent';
+import { NgcCookieConsentConfig } from 'ngx-cookieconsent/lib/service';
+import { TimeAgoPipe } from './pipes/time-ago.pipe';
 
 
+const cookieConfig:NgcCookieConsentConfig = {
+  cookie: {
+    domain: 'localhost' // or 'your.domain.com' // it is mandatory to set a domain, for cookies to work properly (see https://goo.gl/S2Hy2A)
+  },
+  palette: {
+    popup: {
+      background: '#000'
+    },
+    button: {
+      background: '#f1d600'
+    }
+  },
+  theme: 'edgeless',
+  type: 'opt-out'
+};
 
 
 
@@ -58,7 +77,8 @@ import { registerLocaleData } from '@angular/common';
     AvisClientsUpdateComponent,
     UserEditComponent,
     ContactListComponent,
-    
+    NotFoundComponent,
+    TimeAgoPipe
     
     
   ],
@@ -74,14 +94,20 @@ import { registerLocaleData } from '@angular/common';
     HttpClientModule,
     FormsModule,
     PaginationModule,
-   
+    NgcCookieConsentModule.forRoot(cookieConfig),
 
     
     
 
   ],
+  exports:[
+    TimeAgoPipe
+  ],
+
+
   providers: [AuthInterceptorProviders],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+
 })
 export class AppModule {
   constructor(){
