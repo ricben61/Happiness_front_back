@@ -6,7 +6,7 @@ const auth = require ("../middlewares/auth.js")
 
 
 //création d'un avis client
-router.post("/new-avisclients", async (req, res) => {
+router.post("/new-avisclients",auth, async (req, res) => {
     try {
         const avisclients = new AvisClients(req.body);
         // console.log(avisclients);
@@ -33,7 +33,7 @@ router.get("/", async (req, res) => {
     }
 })
 
-router.get("/:id", async (req, res) => {
+router.get("/:id",auth, async (req, res) => {
     try {
         const AvisClientsId = await AvisClients.findById(req.params.id)
         if (!AvisClientsId) {
@@ -49,7 +49,7 @@ router.get("/:id", async (req, res) => {
     }
 })
 
-router.put("/update/:id", async (req, res) => {
+router.put("/update/:id",auth, async (req, res) => {
     try {
         
         await AvisClients.findByIdAndUpdate(req.params.id, {
@@ -72,7 +72,9 @@ router.put("/update/:id", async (req, res) => {
     }
 })
 
-router.delete("/delete/:id", async (req, res) => {
+router.delete("/delete/:id",auth, async (req, res) => {
+   
+   
     try {
         const avisclients = await AvisClients.findByIdAndDelete(req.params.id)
        

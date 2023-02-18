@@ -3,7 +3,10 @@ const router = express.Router();
 const User = require("../models/User");
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const auth = require("../middlewares/auth")
+const auth = require("../middlewares/auth");
+const validConnexion = require ("../middlewares/validConnexion");
+const {validationResult} = require ('../middlewares/validConnexion')
+const validUser = require ('../middlewares/validUser')
 const Comment = require("../models/Comment");
 const AvisClients = require("../models/AvisClients");
 require("dotenv").config();
@@ -11,8 +14,10 @@ require("dotenv").config();
 const PRIVATE_KEY = process.env.PRIVATE_KEY
  
 //création d'un user ou inscription
-router.post("/register", async (req, res) => {
-    try {
+router.post ("/register",validUser.validateUserSignUp, async (req, res) => {
+   
+   
+   try {
         const searchUser = await User.findOne({ email: req.body.email });
         if (searchUser) {
             console.log("utilisateur existant")
@@ -36,7 +41,10 @@ router.post("/register", async (req, res) => {
 
 //connexion
 
-router.post("/login", async (req, res) => {
+router.post("/login",validConnexion.validConnexion, async (req, res) => {
+   
+   
+   
     try {
         //dans le body on va retrouver email et mdp
         //! récupérer l'utilisateur grace a son email
@@ -48,7 +56,7 @@ router.post("/login", async (req, res) => {
         }
 
         
-         const isMatch = await bcrypt.compare(req.body.password, user.password);
+         const isMatch = bcrypt.compare(req.body.password, user.password);
 
         if (!isMatch) {
             return res.status(400).json({ message: "mot de passe incorrect", status: 400 })
@@ -82,7 +90,7 @@ router.post("/login", async (req, res) => {
     }
 })
 
-router.get("/",async (req, res) => {
+router.get("/",auth,async (req, res) => {
     try {
         const userList = await User.find().sort("-createdAt");
         // console.log(userList);
@@ -94,7 +102,7 @@ router.get("/",async (req, res) => {
     }
 })
 
-router.get("/:id", async (req, res) => {
+router.get("/:id",auth, async (req, res) => {
     try {
         
         const userId = await User.findById(req.params.id)
@@ -114,7 +122,7 @@ router.get("/:id", async (req, res) => {
 })
 
 
-router.put("/update/:id", async (req, res) => {
+router.put("/update/:id",auth, async (req, res) => {
     try {
         const user = await User.findById(req.params.id)
         if (!user) {
@@ -131,7 +139,7 @@ router.put("/update/:id", async (req, res) => {
 
 })
 
-router.delete("/delete/:id", async (req, res) => {
+router.delete("/delete/:id",auth, async (req, res) => {
     try {
         const user = await User.findById(req.params.id);
         if (!user) {

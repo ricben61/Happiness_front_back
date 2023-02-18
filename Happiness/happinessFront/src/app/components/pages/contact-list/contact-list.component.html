@@ -14,7 +14,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let contact of contact ">
+                    <tr *ngFor="let contact of contact | paginate
+                    : {
+                        itemsPerPage: tableSize,
+                        currentPage: page,
+                        totalItems: count
+                      };
+                let i = index " >
                         <td>{{contact.nom}}</td>
                         <td>{{contact.prenom}}</td>
                         <td><a href="mailto:{{contact.email}}?subject=re-{{contact.question}}&body=Votre message: ({{contact.message}}) ">{{contact.email}}</a></td>
@@ -29,5 +35,10 @@
         <ng-template #elseBlock>
             <div class="alert alert-danger">vous n'etes pas admin</div>
         </ng-template>
+
     </section>
+    <div class="pagination">
+        <pagination-controls class="ngx" previousLabel="Précedent" nextLabel="Suivant" (pageChange)="onTableDataChange($event)"></pagination-controls>
+    </div>
+
 </main>

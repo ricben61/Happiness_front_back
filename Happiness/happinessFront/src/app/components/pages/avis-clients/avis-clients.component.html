@@ -5,28 +5,31 @@
   <section class="gridCom" *ngIf="admin || !admin ">
 
 
-    <section class="globCom" *ngFor="let avisclient of avisclients ">
-      <p>Avis laisser par {{avisclient.userName}} le {{avisclient.createdAt | timeAgo}} </p>
-      
-      
-      <article class="descriptionCom"><textarea name="description" cols="60" rows="2">{{avisclient.description}}</textarea>
+    <section class="globCom" *ngFor="let avisclient of avisclients | paginate : {itemsPerPage: tableSize, currentPage: page, totalItems: count};let i = index ">
+      <p>Avis laisser par "{{avisclient.userName}}",{{avisclient.createdAt | timeAgo}} </p>
+
+
+      <article class="descriptionCom"><textarea name="description" cols="60"
+          rows="2">{{avisclient.description}}</textarea>
       </article>
 
-      <div class="bouttonCommentaire"   >
+      <div *ngIf="admin || author===author" class="bouttonCommentaire">
         <div class="BtnModCom">
           <button type="submit" class="btnModifComAvisClients"><a
               routerLink="../avis-clients-update/{{avisclient._id}}">Modifier</a></button>
 
         </div>
         <div class="BtnSuppCom">
-          <button  onclick='return confirm("Êtes-vous sûr de vouloir supprimer?")' (click)="deleteAvisClients(avisclient._id)" type="submit"
-            class="btnSuppComAvisClients"><i class="fa-solid fa-trash"></i> Supprimer</button>
+          <button onclick='return confirm("Êtes-vous sûr de vouloir supprimer?")'
+            (click)="deleteAvisClients(avisclient._id)" type="submit" class="btnSuppComAvisClients"><i
+              class="fa-solid fa-trash"></i> Supprimer</button>
 
         </div>
       </div>
+
     </section>
-
-
+    <pagination-controls class="ngx" previousLabel="Précedent" nextLabel="Suivant"
+      (pageChange)="onTableDataChange($event)"></pagination-controls>
   </section>
 
 
@@ -42,8 +45,8 @@
 
         <textarea class="descrptionCommentaire form-group" type="description" [(ngModel)]="form.description"
           name="description" placeholder="écrivez votre commentaire"></textarea>
-       
-          <!-- <div class="alert-danger" *ngIf="form.description.errors && f.submitted">
+
+        <!-- <div class="alert-danger" *ngIf="form.description.errors && f.submitted">
           <div *ngIf="form.description['required']">un avis client est requis</div>
           
         </div> -->
@@ -62,6 +65,7 @@
 
 
     </article>
-    
+
   </section>
+
 </main>

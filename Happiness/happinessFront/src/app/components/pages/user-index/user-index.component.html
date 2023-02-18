@@ -12,7 +12,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let user of users ">
+                    <tr *ngFor="let user of users | paginate
+                    : {
+                        itemsPerPage: tableSize,
+                        currentPage: page,
+                        totalItems: count
+                      };
+                let i = index " >
                         <td>{{user.name}}</td>
                         <td>{{user.email}}</td>
                         <td>{{user.isAdmin ? 'admin' : 'user'}}</td>
@@ -25,5 +31,9 @@
         <ng-template #elseBlock>
             <div class="alert alert-danger">vous n'etes pas admin</div>
         </ng-template>
+   
     </section>
+    <div class="pagination">
+       <pagination-controls class="ngx" previousLabel="Précedent" nextLabel="Suivant" (pageChange)="onTableDataChange($event)"></pagination-controls>
+    </div>
 </main>

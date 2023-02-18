@@ -30,6 +30,13 @@
         margin-left: 10px;
         
       }
+
+      .pagination{
+        width:95%;
+        margin: auto;
+      }
+     
+
   }
   @media screen and (min-width: 800px){
 
@@ -55,8 +62,12 @@
         margin-left: 10px;
         
       }
-     
 
+      .pagination{
+        width: 75%;
+        margin: auto;
+      }
+     
   }
 
 

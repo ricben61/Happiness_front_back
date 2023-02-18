@@ -16,7 +16,13 @@ export class UserIndexComponent {
   loading: boolean = false;
   //admin dira si le user connecté est un admin
   admin: boolean = false;
+  
 
+  page: number = 1;
+  count: number = 0;
+  tableSize: number = 4;
+  tableSizes: any = [3, 6, 9, 12];
+  
   constructor(private userService: UserService, private tokenStorageService: TokenStorageService) {}
 
   //au chargement, on lance getUsers()
@@ -24,7 +30,8 @@ export class UserIndexComponent {
     if(this.tokenStorageService.getUser().admin){
       this.admin = true;
     }
-    this.getUsers();
+    this.getUsers()
+    
   }
 
   //getUsers() récupèrera tous les users pour les stocker dans this.users
@@ -51,7 +58,15 @@ export class UserIndexComponent {
 
 
 
+  onTableDataChange(event: any) {
+    this.page = event;
+    this.getUsers();
+  }
+  onTableSizeChange(event: any): void {
+    this.tableSize = event.target.value;
+    this.page = 1;
+    this.getUsers();
 
 
-
+}
 }

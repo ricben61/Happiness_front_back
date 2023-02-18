@@ -1,3 +1,4 @@
+import { SlicePipe } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { debounceTime, fromEvent, map } from 'rxjs';
@@ -34,13 +35,19 @@ export class AvisClientsComponent {
   avisclients: AvisClients[] = [];
   user= false
   loading: boolean = false;
-
+  
+  page: number = 1;
+  count: number = 0;
+  tableSize: number = 4;
+  tableSizes: any = [3, 6, 9, 12];
+  
 
   constructor(private avisClientsService: AvisClientsService,
     private tokenStorage: TokenStorageService,
     private router: Router) { }
 
   ngOnInit(): void {
+    
     this.getAvisClients();
     if (this.tokenStorage.getUser().admin) {
       this.admin = true;
@@ -59,24 +66,33 @@ export class AvisClientsComponent {
   //  L'argument author est renseigné grâce à la propriété author du composant renseignée dans ngOnInit() (voire ci-dessus)
   onSubmit(): void {
     const { userName, description } = this.form;
+    console.log(description);
     this.avisClientsService.createAvisclients(this.author, userName, description).subscribe(
+     
+     
+      
       data => {
-        // console.log(description);
+        // console.log("description");
         this.isPublished = true;
+      //  console.log("coucou");
         location.reload();
+        
+        
       },
       err => {
         this.errorMessage = err.error.message;
         this.isPublished = false;
       }
-    )
+    ) 
   } 
 
-  public getAvisClients() {
+  public getAvisClients(){
     this.loading = true;
+    
+   
     this.avisClientsService.getAvisClients().subscribe(
       (response) => {
-        console.log(response);
+        // console.log(response);
         this.avisclients = response
       },
       (error) => {
@@ -95,16 +111,30 @@ export class AvisClientsComponent {
     location.reload();
   }
 
-
-
-
   showBtn$ = fromEvent(document, 'scroll').pipe(
     debounceTime(50),
     map(() => window.scrollY > 30),
     // tap(() => console.log('sas'))
     
   );
+  
+  
 
+  onTableDataChange(event: any) {
+    this.page = event;
+    this.getAvisClients();
+  }
+  onTableSizeChange(event: any): void {
+    this.tableSize = event.target.value;
+    this.page = 1;
+    this.getAvisClients();
+
+
+}
+
+
+
+ 
   gotoTop() {
     window.scroll({
       top: 0,

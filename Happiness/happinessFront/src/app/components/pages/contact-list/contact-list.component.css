@@ -62,6 +62,14 @@ h2{
     border: none;
 
   }
+
+  .pagination{
+    width: 90%;
+    margin: auto;
+  }
+ 
+
+
 }
 
 

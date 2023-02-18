@@ -35,22 +35,38 @@ import { NotFoundComponent } from './components/pages/not-found/not-found.compon
 import { NgcCookieConsentModule } from 'ngx-cookieconsent';
 import { NgcCookieConsentConfig } from 'ngx-cookieconsent/lib/service';
 import { TimeAgoPipe } from './pipes/time-ago.pipe';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 const cookieConfig:NgcCookieConsentConfig = {
   cookie: {
     domain: 'localhost' // or 'your.domain.com' // it is mandatory to set a domain, for cookies to work properly (see https://goo.gl/S2Hy2A)
   },
-  palette: {
-    popup: {
-      background: '#000'
+  "position": "bottom-left",
+  "theme": "classic",
+  "palette": {
+    "popup": {
+      "background": "#13a4c1",
+      "text": "#ffffff",
+      "link": "#ffffff"
     },
-    button: {
-      background: '#f1d600'
+    "button": {
+      "background": "#33f6a0",
+      "text": "#f83e3e",
+      "border": "transparent"
     }
   },
-  theme: 'edgeless',
-  type: 'opt-out'
+  "type": "opt-out",
+  "content": {
+    "message": "Ce site web utilise des cookies pour vous assurer la meilleure expérience de navigation sur notre site.",
+    "dismiss": "OK, j'ai compris!",
+    "deny": "Refuser",
+    "link": "Plus d'information",
+    "href": "https://cookiesandyou.com",
+    "policy": "Cookie Policy",
+    "header": "Cookies sur le site!",
+    "allow": "Autoriser les cookies"
+  }
 };
 
 
@@ -95,6 +111,7 @@ const cookieConfig:NgcCookieConsentConfig = {
     FormsModule,
     PaginationModule,
     NgcCookieConsentModule.forRoot(cookieConfig),
+    NgxPaginationModule
 
     
     
