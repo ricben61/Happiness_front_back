@@ -6,7 +6,7 @@ import { AuthService } from 'src/app/_services/auth.service';
 @Component({
   selector: 'app-inscription',
   templateUrl: './inscription.component.html',
-  styleUrls: ['./inscription.component.css']
+  styleUrls: ['./inscription.component.min.css']
 })
 export class InscriptionComponent  {
   

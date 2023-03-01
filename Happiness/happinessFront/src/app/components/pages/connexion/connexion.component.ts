@@ -7,7 +7,7 @@ import { TokenStorageService } from 'src/app/_services/token-storage.service';
 @Component({
   selector: 'app-connexion',
   templateUrl: './connexion.component.html',
-  styleUrls: ['./connexion.component.css']
+  styleUrls: ['./connexion.component.min.css']
 })
 export class ConnexionComponent implements OnInit {
 

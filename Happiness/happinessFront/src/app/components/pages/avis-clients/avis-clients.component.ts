@@ -11,7 +11,7 @@ import { TokenStorageService } from 'src/app/_services/token-storage.service';
 @Component({
   selector: 'app-avis-clients',
   templateUrl: './avis-clients.component.html',
-  styleUrls: ['./avis-clients.component.css']
+  styleUrls: ['./avis-clients.component.min.css']
 })
 export class AvisClientsComponent {
 

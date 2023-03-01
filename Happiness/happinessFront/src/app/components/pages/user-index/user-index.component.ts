@@ -6,7 +6,7 @@ import { UserService } from 'src/app/_services/user.service';
 @Component({
   selector: 'app-user-index',
   templateUrl: './user-index.component.html',
-  styleUrls: ['./user-index.component.css']
+  styleUrls: ['./user-index.component.min.css']
 })
 export class UserIndexComponent {
   //on définit ici les variables nécessaires

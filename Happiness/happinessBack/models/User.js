@@ -5,12 +5,12 @@ const bcrypt = require('bcrypt');
 const userSchema = new mongoose.Schema(
     {
         name: {
-            type: String,
-            require: true,
+                type: String,lowercase: true, required: [true, "ne peut être vide"], match: [/^[a-zA-Z0-9]+$/, 'incorrect'], index: true,
+           
         },
         email: {
-            type: String,
-            require: true,
+            
+            type: String, lowercase: true, required: [true, "ne peut être vide"], index: true
         },
         password: {
             type: String,
@@ -20,7 +20,7 @@ const userSchema = new mongoose.Schema(
             type: Boolean,
             default:false,
         },
-    },
+    }, 
     {
         timestamps: true,
     }

@@ -7,7 +7,7 @@ import { User } from 'src/app/models/user.model';
 @Component({
   selector: 'app-contact-list',
   templateUrl: './contact-list.component.html',
-  styleUrls: ['./contact-list.component.css']
+  styleUrls: ['./contact-list.component.min.css']
 })
 export class ContactListComponent implements OnInit {
 

@@ -6,7 +6,10 @@ const nodemailer = require('nodemailer')
 const cors = require ('cors');
 const app = express();
 const bodyParser = require('body-parser');
-const router=express.Router ()
+const router=express.Router ();
+const helmet = require("helmet");
+
+
 app.use(cors());
 app.options('*', cors());
 app.use(bodyParser.json({limit: '10mb', extended: true}));
@@ -31,6 +34,7 @@ app.use(bodyParser.urlencoded({limit: '10mb', extended: true}));
 //     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
 //     next();
 // });
+
 app.use(function(req, res, next) {
     req.header("Content-Type: application/x-www-form-urlencoded");
     res.header("Access-Control-Allow-Origin", "*");
@@ -45,7 +49,7 @@ app.use(function(req, res, next) {
     next();
     })
 
-
+app.use(helmet());
 //-------------------routes pour les chemins d'acces a la routes web-------------
 
 const userRoute = require("./routes/userRoute");

@@ -103,7 +103,7 @@ h1{
     transform: translateX(150px);
     top:35%;
     pointer-events: none;
-    animation: rocket-movement 200s linear infinite both running;
+    animation: rocket-movement 20s linear infinite both running;
 }
 
 .object_earth{
@@ -120,7 +120,7 @@ h1{
     left: 25%;
 
     transform: rotate(0deg);
-    transition: transform ease-in 99999999999s;
+    transition: transform ease-in 9999999s;
 }
 
 

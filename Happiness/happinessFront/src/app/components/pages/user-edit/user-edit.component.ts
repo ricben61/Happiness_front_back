@@ -6,7 +6,7 @@ import { UserService } from 'src/app/_services/user.service';
 @Component({
   selector: 'app-user-edit',
   templateUrl: './user-edit.component.html',
-  styleUrls: ['./user-edit.component.css']
+  styleUrls: ['./user-edit.component.min.css']
 })
 export class UserEditComponent implements OnInit {
 

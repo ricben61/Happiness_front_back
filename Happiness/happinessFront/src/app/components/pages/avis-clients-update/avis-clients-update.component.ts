@@ -11,7 +11,7 @@ import { UserService } from 'src/app/_services/user.service';
 @Component({
   selector: 'app-avis-clients-update',
   templateUrl: './avis-clients-update.component.html',
-  styleUrls: ['./avis-clients-update.component.css']
+  styleUrls: ['./avis-clients-update.component.min.css']
 })
 export class AvisClientsUpdateComponent  { 
   
@@ -19,8 +19,9 @@ export class AvisClientsUpdateComponent  {
   //form contiendra les valeurs entrées dans le formulaire
   form: any = {
     userName:null,
-    description: null    
+    description:null,
   }
+  
   //admin dira si le user connecté a le statut admin
 admin = false;
 //isPublished dira si le post est publié ou non
@@ -32,14 +33,14 @@ idUser = '';
 //id stockera l'id du post qui est en cours de modification
 _id:string = '';
 //post contiendra le post en cours de modification et ses propriétés, récupérés depuis le back
-@Input() AvisClients?: AvisClients
+// @Input() AvisClients?: AvisClients
 // user contiendra les informations sur le user connecté, récupérées dans sessionStorage
 @Input() user?: any
 // author contiendra les informations sur l'auteur de post, récupérées depuis le back
 //!logiquement ces informations ne sont accessibles qu'à un admin. Si on veut autoriser un autre rôle à accéder à ces informations il faut le préciser en back
 @Input() author?: User
- avisclients: AvisClients[] = [];
-
+ avisclients: any;
+currentAvisClientsId!: string;
 
   constructor( private tokenStorage: TokenStorageService,
                private AvisClientsService:AvisClientsService,
@@ -49,7 +50,7 @@ _id:string = '';
 
   ngOnInit(): void {
 
-    this.getAvisClientsById(this._id);
+    this.getAvisClientsById();
     
     if(this.tokenStorage.getUser().admin) {
       this.admin = true;
@@ -67,19 +68,27 @@ _id:string = '';
   }
 
   //cette méthode permet de récupérer un post par son id grâce au PostService et lance aussi la récupération de l'auteur avec getAuthor() (voire plus bas). Les informations récupérées sont stockées dans this.form
-   getAvisClientsById(_id: string) {
-    this.AvisClientsService.getAvisClientsById(_id).subscribe(AvisClients => {
-      this.AvisClients = AvisClients;
-      
+   private getAvisClientsById() {
+    this.route.params.subscribe((params) => {
+      if (params['id']) {
+        this.currentAvisClientsId = params['id'];
+        this.AvisClientsService.getAvisClientsById(this.currentAvisClientsId).subscribe((data) => {
+          this.avisclients = data;
+          this.form.description = this.avisclients.result.description;
+          this.form.userName = this.avisclients.result.userName;
       // console.log(AvisClients.description);
-      // console.log(this.avisclients);
+            console.log(this.avisclients);
+            console.log(this.avisclients.result.description);
+            
+      }
+    )
+    
       
-      this.getAuthor(AvisClients.author)
-      this.form.userName = AvisClients.userName;
-      this.form.description = AvisClients.description;
+      
     }
-      );
-  }
+    
+  });
+}
 
   
   //cette méthode récupère un user dans le back grâce à son id

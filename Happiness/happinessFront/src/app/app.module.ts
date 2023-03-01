@@ -36,11 +36,12 @@ import { NgcCookieConsentModule } from 'ngx-cookieconsent';
 import { NgcCookieConsentConfig } from 'ngx-cookieconsent/lib/service';
 import { TimeAgoPipe } from './pipes/time-ago.pipe';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { RgpdComponent } from './components/pages/rgpd/rgpd.component';
 
 
 const cookieConfig:NgcCookieConsentConfig = {
   cookie: {
-    domain: 'localhost' // or 'your.domain.com' // it is mandatory to set a domain, for cookies to work properly (see https://goo.gl/S2Hy2A)
+    domain: 'localhost'
   },
   "position": "bottom-left",
   "theme": "classic",
@@ -62,7 +63,7 @@ const cookieConfig:NgcCookieConsentConfig = {
     "dismiss": "OK, j'ai compris!",
     "deny": "Refuser",
     "link": "Plus d'information",
-    "href": "https://cookiesandyou.com",
+    "href": "rgpd",
     "policy": "Cookie Policy",
     "header": "Cookies sur le site!",
     "allow": "Autoriser les cookies"
@@ -94,7 +95,8 @@ const cookieConfig:NgcCookieConsentConfig = {
     UserEditComponent,
     ContactListComponent,
     NotFoundComponent,
-    TimeAgoPipe
+    TimeAgoPipe,
+    RgpdComponent
     
     
   ],

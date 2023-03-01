@@ -34,13 +34,14 @@ router.get("/", async (req, res) => {
 })
 
 router.get("/:id",auth, async (req, res) => {
+    console.log('couclou');
     try {
-        const AvisClientsId = await AvisClients.findById(req.params.id)
-        if (!AvisClientsId) {
+        const avisClients = await AvisClients.findById(req.params.id)
+        if (!avisClients) {
             return res.status(400).json({ message: "cet avis n'existe pas", statut: 400 })
         }
         else {
-            res.status(200).json({ status: 200, result: AvisClientsId })
+            res.status(200).json({ status: 200, result: avisClients })
         }
     }
     catch (error) {

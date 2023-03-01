@@ -1,0 +1,14 @@
+main {
+    padding: 10vh 3vw ; 
+    
+  }
+
+  section{
+    width: 100%;
+    background-color: #BAD2B0;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px black;
+    margin: 0px auto;
+    padding: 15px;
+  }
+ 

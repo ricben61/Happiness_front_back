@@ -13,7 +13,7 @@
           rows="2">{{avisclient.description}}</textarea>
       </article>
 
-      <div *ngIf="admin || author===author" class="bouttonCommentaire">
+      <div *ngIf="admin || author " class="bouttonCommentaire">
         <div class="BtnModCom">
           <button type="submit" class="btnModifComAvisClients"><a
               routerLink="../avis-clients-update/{{avisclient._id}}">Modifier</a></button>

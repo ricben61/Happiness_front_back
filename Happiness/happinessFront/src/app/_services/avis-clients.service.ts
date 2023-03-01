@@ -29,10 +29,18 @@ export class AvisClientsService {
     return result;
     }
   // cette méthode récupère un avis clients par son id
-  getAvisClientsById(_id: string): Observable<AvisClients> {
-    const AvisClients = this.http.get<AvisClients>(`${AVIS_API}${_id}`);
-    return AvisClients;
-  }
+  // getAvisClientsById(id: string): Observable<AvisClients> {
+  //   const AvisClients = this.http.get<AvisClients>(AVIS_API+`${id}`);
+  //   return AvisClients;
+  // }
+
+  getAvisClientsById(id: string): Observable<AvisClients> {
+       const avisClients = this.http.get<AvisClients>(AVIS_API+`${id}`);       
+      return avisClients;
+     }
+
+
+
   // cette méthode envoie une requête vers avis clients/new avec un body qui contient un title, un content et un author.
   //  Le back reconnaitra l'url et si le token le permet, un post sera créé dans la bdd
   createAvisclients(author:string,userName:string,description: string): Observable<AvisClients> {

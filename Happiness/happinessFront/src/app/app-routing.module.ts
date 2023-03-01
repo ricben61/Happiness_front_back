@@ -14,6 +14,7 @@ import { UserEditComponent } from './components/pages/user-edit/user-edit.compon
 import { AvisClientsUpdateComponent } from './components/pages/avis-clients-update/avis-clients-update.component';
 import { ContactListComponent } from './components/pages/contact-list/contact-list.component';
 import { NotFoundComponent } from './components/pages/not-found/not-found.component';
+import { RgpdComponent } from './components/pages/rgpd/rgpd.component';
 
 
 const routes: Routes = [
@@ -33,6 +34,7 @@ const routes: Routes = [
   { path: 'avis-clients-update/:id', component: AvisClientsUpdateComponent },
   { path: 'contact-list', component: ContactListComponent },
   { path: 'notFound', component:NotFoundComponent},
+  { path: 'rgpd', component:RgpdComponent},
   { path: '**', redirectTo: 'notFound' }
 ]
 

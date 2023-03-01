@@ -5,7 +5,7 @@ import { debounceTime, fromEvent, map, tap } from 'rxjs';
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.css']
+  styleUrls: ['./footer.component.min.css']
 })
 export class FooterComponent implements OnInit {
 

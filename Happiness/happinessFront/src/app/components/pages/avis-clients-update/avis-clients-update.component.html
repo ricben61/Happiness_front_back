@@ -2,14 +2,13 @@
 
 
   <section class="secModavisClients"    >
+    <div class="ModCommentaires"   >
+      <h3 class="h3AvisClients">Modifier votre avis clients.</h3>
+      <form *ngIf="admin  else elseBlock" class="formAvisClients" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+        <p>avis laisser par {{this.avisclients.result.userName}} le {{avisclients.result.createdAt | date: 'dd/MM/yyyy à HH:mm'}} </p>
+        <textarea name="description" class="descrptionCommentaire" [(ngModel)]="form.description"
+          required content #description="ngModel"  >{{this.avisclients.result.description}}</textarea>
 
-    <div class="ModCommentaires"  >
-      <h3 class="h3AvisClients"   >Modifier votre avis clients.</h3>
-      <form *ngIf="admin  else elseBlock"    class="formAvisClients" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
-        
-        <textarea class="descrptionCommentaire" type="description" name="description" [(ngModel)]="form.description"
-          required content #description="ngModel" placeholder="écrivez votre commentaire"  ></textarea>
-         
           <div class="alert-danger" *ngIf="description.errors && f.submitted">
             <div *ngIf="description.errors['required']">la description de l'avis clients et obligatoire</div>
             <div *ngIf="description.errors['content']">
