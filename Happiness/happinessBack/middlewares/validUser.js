@@ -11,7 +11,7 @@ exports.validateUserSignUp = [
             name: req.body.name,
            
         });
-         console.log("coucou");
+        //  console.log("coucou");
         if (user) {
             return Promise.reject("le nom d'utilisateur est déjà utilisé");
         }

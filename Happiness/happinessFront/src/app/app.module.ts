@@ -62,9 +62,9 @@ const cookieConfig:NgcCookieConsentConfig = {
     "message": "Ce site web utilise des cookies pour vous assurer la meilleure expérience de navigation sur notre site.",
     "dismiss": "OK, j'ai compris!",
     "deny": "Refuser",
-    "link": "Plus d'information",
+    "link": "Plus d'information sur les 🍪 ",
     "href": "rgpd",
-    "policy": "Cookie Policy",
+    "policy": " Politiques des cookies 🍪",
     "header": "Cookies sur le site!",
     "allow": "Autoriser les cookies"
   }

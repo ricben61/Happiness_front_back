@@ -62,7 +62,7 @@ currentAvisClientsId!: string;
     }
 
     this._id = String(this.route.snapshot.paramMap.get('id'));
-    
+    // console.log(this.author);
     // console.log(this._id);
     
   }
@@ -77,8 +77,8 @@ currentAvisClientsId!: string;
           this.form.description = this.avisclients.result.description;
           this.form.userName = this.avisclients.result.userName;
       // console.log(AvisClients.description);
-            console.log(this.avisclients);
-            console.log(this.avisclients.result.description);
+            // console.log(this.avisclients);
+            // console.log(this.avisclients.result.description);
             
       }
     )

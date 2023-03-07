@@ -1,4 +1,4 @@
-import { SlicePipe } from '@angular/common';
+
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { debounceTime, fromEvent, map } from 'rxjs';
@@ -31,6 +31,7 @@ export class AvisClientsComponent {
   idUser = '';
   //author renseignera la propriété author du post qui sera créé
   author = '';
+  currentUser='';
   userName = '';
   avisclients: AvisClients[] = [];
   user= false
@@ -52,12 +53,21 @@ export class AvisClientsComponent {
     if (this.tokenStorage.getUser().admin) {
       this.admin = true;
       this.author = this.tokenStorage.getUser().userId;
+      // console.log(this.author);
+      // console.log(this.currentUser);
+      // console.log(this.author);
       
     }
     if(this.tokenStorage.getUser()){
       this.user=true;
       this.author = this.tokenStorage.getUser().userId
+      this.currentUser = this.tokenStorage.getUser().userId
+      console.log(this.author);
+      console.log(this.currentUser);
+      console.log(this.author);
     }
+    
+    
     
   }
 
@@ -68,9 +78,6 @@ export class AvisClientsComponent {
     const { userName, description } = this.form;
     console.log(description);
     this.avisClientsService.createAvisclients(this.author, userName, description).subscribe(
-     
-     
-      
       data => {
         // console.log("description");
         this.isPublished = true;
@@ -117,8 +124,6 @@ export class AvisClientsComponent {
     // tap(() => console.log('sas'))
     
   );
-  
-  
 
   onTableDataChange(event: any) {
     this.page = event;
@@ -131,9 +136,6 @@ export class AvisClientsComponent {
 
 
 }
-
-
-
  
   gotoTop() {
     window.scroll({

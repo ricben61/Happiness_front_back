@@ -9,7 +9,6 @@ const auth = (req, res, next) => {
    
 //    try {
 //         // console.log("coucou");
-
 //         const token = req.headers.authorization.split(' ')[1];
 //         // const token = req.headers["authorization"];
 //         // console.log(token);
@@ -20,14 +19,11 @@ const auth = (req, res, next) => {
 //         req.auth = {
 //             userId: userId
 //         }
-       
 //      next();
      
 //     } catch(error) {
 //         res.status(401).json({ error });
 //     }
-
-
     try{
         //--extraire le token du header "autorization"
         const token= req.headers.authorization.split(" ")[1];

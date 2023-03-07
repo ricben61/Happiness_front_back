@@ -19,9 +19,6 @@ export class AvisClientsService {
   userName: any;
   
 
-  author(author: any) {
-    throw new Error('Method not implemented.');
-  }
   constructor( private http: HttpClient ) { }
  // cette méthode récupère tous les avis clients
   getAvisClients(): Observable <AvisClients[]>{
@@ -35,7 +32,7 @@ export class AvisClientsService {
   // }
 
   getAvisClientsById(id: string): Observable<AvisClients> {
-       const avisClients = this.http.get<AvisClients>(AVIS_API+`${id}`);       
+       const avisClients = this.http.get<AvisClients>(AVIS_API+`${id}`);              
       return avisClients;
      }
 

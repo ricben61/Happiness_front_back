@@ -5,7 +5,7 @@
     <div class="ModCommentaires"   >
       <h3 class="h3AvisClients">Modifier votre avis clients.</h3>
       <form *ngIf="admin  else elseBlock" class="formAvisClients" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
-        <p>avis laisser par {{this.avisclients.result.userName}} le {{avisclients.result.createdAt | date: 'dd/MM/yyyy à HH:mm'}} </p>
+        <p>avis laissé par {{this.avisclients.result.userName}} le {{avisclients.result.createdAt | date: 'dd/MM/yyyy à HH:mm'}} </p>
         <textarea name="description" class="descrptionCommentaire" [(ngModel)]="form.description"
           required content #description="ngModel"  >{{this.avisclients.result.description}}</textarea>
 
@@ -19,7 +19,7 @@
           <button type="submit" class="btnPosterAvisClients">Modifier votre avis</button>
       
         <div class="alert alert-warning" *ngIf="f.submitted && !isPublished">
-          Modification échouer!<br />{{ errorMessage }}
+          Modification échoué!<br />{{ errorMessage }}
         </div>
       </form>
       <ng-template #elseBlock>

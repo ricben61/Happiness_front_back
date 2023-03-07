@@ -7,7 +7,6 @@ const auth = require("../middlewares/auth");
 const validConnexion = require ("../middlewares/validConnexion");
 const {validationResult} = require ('../middlewares/validConnexion')
 const validUser = require ('../middlewares/validUser')
-const Comment = require("../models/Comment");
 const AvisClients = require("../models/AvisClients");
 require("dotenv").config();
 
@@ -55,9 +54,8 @@ router.post("/login",validConnexion.validConnexion, async (req, res) => {
             return res.status(400).json({ message: "cet utilisateur n'existe pas", statut: 400 })
         }
 
-        
-         const isMatch = bcrypt.compare(req.body.password, user.password);
-
+         const isMatch = await bcrypt.compare(req.body.password, user.password);
+        //  console.log(isMatch);
         if (!isMatch) {
             return res.status(400).json({ message: "mot de passe incorrect", status: 400 })
         }
