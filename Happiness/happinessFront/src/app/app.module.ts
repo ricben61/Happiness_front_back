@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import {PaginationModule} from 'ngx-bootstrap/pagination'
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
@@ -8,9 +9,8 @@ import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthInterceptorProviders } from './_helper/auth.interceptor';
-import {PaginationModule} from 'ngx-bootstrap/pagination'
 import * as fr from '@angular/common/locales/fr'
-
+import { NgxPaginationModule } from 'ngx-pagination';
 
 //componemts//
 import { FooterComponent } from './components/footer/footer.component';
@@ -35,7 +35,7 @@ import { NotFoundComponent } from './components/pages/not-found/not-found.compon
 import { NgcCookieConsentModule } from 'ngx-cookieconsent';
 import { NgcCookieConsentConfig } from 'ngx-cookieconsent/lib/service';
 import { TimeAgoPipe } from './pipes/time-ago.pipe';
-import { NgxPaginationModule } from 'ngx-pagination';
+
 import { RgpdComponent } from './components/pages/rgpd/rgpd.component';
 
 
@@ -101,7 +101,7 @@ const cookieConfig:NgcCookieConsentConfig = {
     
   ],
   imports: [
-    
+    PaginationModule,
     BrowserModule,
     AppRoutingModule,
     NgbModule,
@@ -111,7 +111,6 @@ const cookieConfig:NgcCookieConsentConfig = {
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    PaginationModule,
     NgcCookieConsentModule.forRoot(cookieConfig),
     NgxPaginationModule
 

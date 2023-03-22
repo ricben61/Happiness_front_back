@@ -7,11 +7,9 @@ import { TokenStorageService } from '../_services/token-storage.service';
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
     constructor(private tokenStorage: TokenStorageService) { }
-
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         // on recupere une requete en cours d'acheminement, 
         let authReq = req;
-
         //  on recupere le token
         const token = this.tokenStorage.getToken();
         if (token != null) {
@@ -23,7 +21,6 @@ export class AuthInterceptor implements HttpInterceptor {
         return next.handle(authReq)
     }
 }
-
 export const AuthInterceptorProviders = [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
 ]

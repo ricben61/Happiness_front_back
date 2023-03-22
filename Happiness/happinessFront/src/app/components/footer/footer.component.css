@@ -61,21 +61,15 @@ hr {
   z-index: 99 !important;
   cursor: pointer;
 }
-
-
-
 @media screen and (max-width: 800px) {
   footer{
     width: auto;
   }
-  
   ul {
     display: grid; /*pour faire deux colonnes et faciliter le responsive*/
     grid-template-columns: repeat(2, 1fr);
     padding-left: 0;
   }
-  
- 
   .reseau ul { /*pour avoir qu'une colonne de reseau*/
     display: block;
   }

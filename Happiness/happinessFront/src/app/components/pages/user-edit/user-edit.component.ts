@@ -58,19 +58,19 @@ export class UserEditComponent implements OnInit {
   onSubmit(): void {
     const { name, isAdmin } = this.form;
     
-    this.userService.updateUser(this.id,name, isAdmin).subscribe(
-      data => {
+    this.userService.updateUser(this.id,name, isAdmin).subscribe({
+     next: data => {
         // console.log(data);
         this.isSuccessful = true;
         this.isUpdateFailed = false;
         window.location.href = 'user-index';
       },
-      err => {
+      error:err => {
         console.error(err);
         this.errorMessage = err.error.message;
         this.isUpdateFailed = true;
       }
-    )
+    })
   }
 
 

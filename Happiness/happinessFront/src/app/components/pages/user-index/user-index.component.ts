@@ -38,13 +38,15 @@ export class UserIndexComponent {
   //!cette méthode ne sera accessible qu'à un admin
   public getUsers() {
     this.loading = true;
-    this.userService.getUsers().subscribe((data) => {
+    this.userService.getUsers().subscribe({
+      next:(data) => {
       this.users = data;
       // console.log(data);
     },
-    (error) => {
+    error : (error) => {
       console.error('request failed with error',error.message);
       this.loading = false;
+    }
     }), () => {
       this.loading = false;
       console.log('request completed');

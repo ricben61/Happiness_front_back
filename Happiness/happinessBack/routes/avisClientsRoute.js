@@ -1,12 +1,15 @@
 const express = require("express");
 const AvisClients = require("../models/AvisClients");
 const router = express.Router();
+
 const auth = require ("../middlewares/auth.js")
 
 
 
+
+
 //création d'un avis client
-router.post("/new-avisclients", async (req, res) => {
+router.post("/new-avisclients",auth, async (req, res) => {
     try {
         const avisclients = new AvisClients(req.body);
         // console.log(avisclients);
@@ -23,6 +26,13 @@ router.post("/new-avisclients", async (req, res) => {
 }
 );
 
+
+
+
+
+
+
+
 router.get("/", async (req, res) => {
     try {
         const AvisClientsList = await AvisClients.find().sort("-createdAt");
@@ -33,7 +43,7 @@ router.get("/", async (req, res) => {
     }
 })
 
-router.get("/:id", async (req, res) => {
+router.get("/:id",auth, async (req, res) => {
     // console.log('coucou');
     try {
         const avisClients = await AvisClients.findById(req.params.id)
@@ -50,11 +60,9 @@ router.get("/:id", async (req, res) => {
     }
 })
 
-router.put("/update/:id", async (req, res) => {
+router.put("/update/:id",auth,  async (req, res) => {
     try {
-        
         await AvisClients.findByIdAndUpdate(req.params.id, {
-
             userName: req.body.userName,
             description: req.body.description
         })

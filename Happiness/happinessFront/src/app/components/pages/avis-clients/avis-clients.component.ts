@@ -6,8 +6,6 @@ import { AvisClients } from 'src/app/models/avisclients.model';
 import { AvisClientsService } from 'src/app/_services/avis-clients.service';
 import { TokenStorageService } from 'src/app/_services/token-storage.service';
 
-
-
 @Component({
   selector: 'app-avis-clients',
   templateUrl: './avis-clients.component.html',
@@ -62,9 +60,9 @@ export class AvisClientsComponent {
       this.user=true;
       this.author = this.tokenStorage.getUser().userId
       this.currentUser = this.tokenStorage.getUser().userId
-      console.log(this.author);
-      console.log(this.currentUser);
-      console.log(this.author);
+      // console.log(this.author);
+      // console.log(this.currentUser);
+      // console.log(this.author);
     }
     
     
@@ -72,41 +70,42 @@ export class AvisClientsComponent {
   }
 
   //quand l'avis client est soumis, on sollicite la méthode createAvis() de avisClientService à laquelle
-  //  on donne en arguments les valeurs récupérées dans les champs title et content du formulaire.
-  //  L'argument author est renseigné grâce à la propriété author du composant renseignée dans ngOnInit() (voire ci-dessus)
+  //  on donne en argument les valeurs récupérées dans les champs userName et description du formulaire.
+  //  L'argument author est renseigné grâce à la propriété author du composant renseignée dans ngOnInit()
   onSubmit(): void {
     const { userName, description } = this.form;
     console.log(description);
-    this.avisClientsService.createAvisclients(this.author, userName, description).subscribe(
-      data => {
+    this.avisClientsService.createAvisclients(this.author, userName, description).subscribe({
+     next: () => {
         // console.log("description");
         this.isPublished = true;
       //  console.log("coucou");
         location.reload();
-        
-        
       },
-      err => {
+     error: err => {
         this.errorMessage = err.error.message;
         this.isPublished = false;
       }
-    ) 
+    }) 
   } 
+
+
+
+
+
 
   public getAvisClients(){
     this.loading = true;
-    
-   
-    this.avisClientsService.getAvisClients().subscribe(
-      (response) => {
+    this.avisClientsService.getAvisClients().subscribe({
+      next:(response) => {
         // console.log(response);
         this.avisclients = response
       },
-      (error) => {
+       error : (error) => {
         console.error("request failled with err");
         this.loading = false;
-      }
-    ), () => {
+      },
+    }), () => {
       console.log('request completed');
       this.loading = false
 
@@ -117,14 +116,12 @@ export class AvisClientsComponent {
     this.avisClientsService.deleteAvisClients(id).subscribe()
     location.reload();
   }
-
   showBtn$ = fromEvent(document, 'scroll').pipe(
     debounceTime(50),
     map(() => window.scrollY > 30),
     // tap(() => console.log('sas'))
     
   );
-
   onTableDataChange(event: any) {
     this.page = event;
     this.getAvisClients();
@@ -133,10 +130,7 @@ export class AvisClientsComponent {
     this.tableSize = event.target.value;
     this.page = 1;
     this.getAvisClients();
-
-
 }
- 
   gotoTop() {
     window.scroll({
       top: 0,
@@ -144,12 +138,4 @@ export class AvisClientsComponent {
       behavior: 'smooth',
     });
   }
-
-
-
-
-
-
-
-
 }

@@ -8,7 +8,6 @@ describe(' crud  user', () => {
             name: 'testName',
             email: 'test@email.fr',
             password: 'testpassword',
-
         });
         console.log(test);
         test.save().then(() => {

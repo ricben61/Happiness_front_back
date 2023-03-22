@@ -8,7 +8,7 @@
             <div class="form-group">
                 <label for="nameInscription">Nom d'utilisateur:</label>
                 <input id="nameInscription" name="name" class="form-control" [(ngModel)]="form.name" required
-                    minlength="3" maxlength="20" #name="ngModel" type="text" placeholder="Nom d'utilisateur">
+                    minlength="3" maxlength="20" #name="ngModel" type="text" placeholder="Nom d'utilisateur" autocomplete="off" >
                 <div class="alert-danger" *ngIf="name.errors && f.submitted">
                     <div *ngIf="name.errors['required']" style="color: crimson">le nom de l'utilisateur est requis</div>
                     <div *ngIf="name.errors['minlength']" style="color: crimson">
@@ -21,23 +21,25 @@
             </div>
             <div class="form-group">
                 <label for="InputInscription">adresse email:</label>
-                <input id="InputInscription" name="email" type="email" class="form-control" [(ngModel)]="form.email"
-                    required email #email="ngModel" aria-describedby="emailHelp" placeholder="email">
+                <input id="InputInscription" name="email" type="email" class="form-control" [(ngModel)]="form.email" 
+                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                    required email #email="ngModel" aria-describedby="emailHelp" placeholder="email" autocomplete="off" >
                 <div class="alert-danger" *ngIf="email.errors && f.submitted">
                     <div *ngIf="email.errors['required']" style="color: crimson">L'email est requis</div>
                     <div *ngIf="email.errors['email']" style="color: crimson">
-                        Adress email non valid
+                        Adresse email non valide
                     </div>
                 </div>
             </div>
+
             <div class="form-group">
                 <label for="myInput">Mot de passe:</label>
-                <input id="myInput" name="password" [type]="hide ? 'password' : 'text'" class="inputInscription form-control"
-                    id="exampleInputPassword1" placeholder="Mot de passe" [(ngModel)]="form.password" required
-                    minlength="6" #password="ngModel">
+                <input id="myInput" name="password" [type]="hide ? 'password' : 'text'"
+                    class="inputInscription form-control" id="exampleInputPassword1" placeholder="Mot de passe"
+                    [(ngModel)]="form.password" required minlength="6" #password="ngModel">
                 <div class="alert-danger" *ngIf="password.errors && f.submitted">
-                    <div *ngIf="password.errors['required']">Mot de passe obligatoire</div>
-                    <div *ngIf="password.errors['minlength']">
+                    <div *ngIf="password.errors['required']" style="color: crimson" >Mot de passe obligatoire</div>
+                    <div *ngIf="password.errors['minlength']" style="color: crimson" >
                         Le mot de passe doit avoir minimum 6 caracteres
                     </div>
                 </div>
@@ -50,7 +52,7 @@
 
             </div>
             <div class="voirMdp">
-                <input class="chekmdp" type="checkbox" (click)="myFunction()" >
+                <input class="chekmdp" type="checkbox" (click)="myFunction()">
                 <p class="pVoir"> Voir les mots de passe.</p>
             </div>
             <button type="submit" class="btn btn-primary">Inscription</button>
@@ -61,7 +63,7 @@
         <div class="alert alert-success" *ngIf="isSuccessful">
             votre inscription est un succes!
         </div>
-        
+
     </section>
-   
+
 </main>

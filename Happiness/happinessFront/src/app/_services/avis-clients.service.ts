@@ -3,8 +3,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { AvisClients } from '../models/avisclients.model';
 import { environment } from 'src/environments/environment';
-
-
 const httpOptions = {
 
   Headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -17,8 +15,6 @@ const httpOptions = {
 export class AvisClientsService {
   description: any;
   userName: any;
-  
-
   constructor( private http: HttpClient ) { }
  // cette méthode récupère tous les avis clients
   getAvisClients(): Observable <AvisClients[]>{
@@ -26,24 +22,19 @@ export class AvisClientsService {
     return result;
     }
   // cette méthode récupère un avis clients par son id
-  // getAvisClientsById(id: string): Observable<AvisClients> {
+  // getAvisClientsById(id:string): Observable<AvisClients> {
   //   const AvisClients = this.http.get<AvisClients>(AVIS_API+`${id}`);
   //   return AvisClients;
   // }
-
   getAvisClientsById(id: string): Observable<AvisClients> {
        const avisClients = this.http.get<AvisClients>(AVIS_API+`${id}`);              
       return avisClients;
      }
-
-
-
   // cette méthode envoie une requête vers avis clients/new avec un body qui contient un title, un content et un author.
   //  Le back reconnaitra l'url et si le token le permet, un post sera créé dans la bdd
   createAvisclients(author:string,userName:string,description: string): Observable<AvisClients> {
     return this.http.post<AvisClients>(AVIS_API+"new-avisclients",{author,userName,description});
   }
-
   //cette méthode envoie une requête vers avisclients/update avec un body qui contient un userName et une description.
   //  Le back reconnaitra l'url et si le token le permet, le post sera modifié dans la bdd avec ces nouvelles valeurs.
   //  On ne pourra pas modifier l'auteur avec cette méthode (c'est volontaire)

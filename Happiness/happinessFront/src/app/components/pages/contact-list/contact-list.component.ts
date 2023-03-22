@@ -16,15 +16,10 @@ export class ContactListComponent implements OnInit {
   loading: boolean = false;
   users: User[] = []; 
 
-  
   page: number = 1;
   count: number = 0;
   tableSize: number = 4;
   tableSizes: any = [3, 6, 9, 12];
-
-
-
-
   constructor(private ContactService:ContactService, private tokenStorageService: TokenStorageService) { }
 
   ngOnInit(): void {
@@ -33,26 +28,23 @@ export class ContactListComponent implements OnInit {
     }
     this.getContact()
   }
-
-
   public getContact(){
     this.loading = true;
-    this.ContactService.getContact().subscribe((data)=>{
+    this.ContactService.getContact().subscribe({
+     next: (data)=>{
       this.contact=data;
       console.log(data);
       
     },
-      (error) => {
+      error:(error) => {
         console.error('request failed with error',error.message);
         this.loading = false;
+      }
       }), () => {
         this.loading = false;
         console.log('request completed');
       };
-    
   }
-
-  
   onTableDataChange(event: any) {
     this.page = event;
     this.getContact();
@@ -61,21 +53,9 @@ export class ContactListComponent implements OnInit {
     this.tableSize = event.target.value;
     this.page = 1;
     this.getContact();
-
-
 }
-
-
-
-
-
-
-
   deleteContact(id:string){
     this.ContactService.deleteContact(id).subscribe()
     location.reload();
   }
-
-
-
 }

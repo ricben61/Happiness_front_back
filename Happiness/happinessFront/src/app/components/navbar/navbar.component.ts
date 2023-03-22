@@ -27,11 +27,9 @@ export class NavbarComponent implements OnInit {
       if (this.tokenStorage.getToken()) {
         this.isLoggedIn= true;
         this.admin= this.tokenStorage.getUser().admin
-        this.user=this.tokenStorage.getUser()
-               
+        this.user=this.tokenStorage.getUser()   
       }
     }
-      
     logOut():void{
       this.tokenStorage.signOut();
       window.location.href = 'accueil';

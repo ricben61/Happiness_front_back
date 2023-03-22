@@ -4,32 +4,28 @@ const User = require("../models/User");
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const auth = require("../middlewares/auth");
-const validConnexion = require ("../middlewares/validConnexion");
-const {validationResult} = require ('../middlewares/validConnexion')
-const validUser = require ('../middlewares/validUser')
 const AvisClients = require("../models/AvisClients");
 require("dotenv").config();
-
 const PRIVATE_KEY = process.env.PRIVATE_KEY
- 
-//création d'un user ou inscription
-router.post ("/register",validUser.validateUserSignUp, async (req, res) => {
-   
-   
+
+//------------------------création d'un user ou inscription-------------------------//
+router.post ("/register", async (req, res) => {
    try {
         const searchUser = await User.findOne({ email: req.body.email });
         if (searchUser) {
             console.log("utilisateur existant")
             return res
                 .status(403)
-                .json({ message: `L'utilisateur ${searchUser.email} existe déjà`, status: 403 });
+                .json({ message: `L'utilisateur ${searchUser.email} existe déjà`, 
+                status: 403 });
         }
         const user = new User(req.body);
         const newUser = await user.save();
         console.log("création réussie");
         return res
             .status(201)
-            .json({ message: `l'utilisateur ${newUser.name} a été créé`, status: 201 });
+            .json({ message: `l'utilisateur ${newUser.name} a été créé`,
+             status: 201 });
     } catch (error) {
         return res
             .status(500)
@@ -37,13 +33,8 @@ router.post ("/register",validUser.validateUserSignUp, async (req, res) => {
     }
 }
 );
-
-//connexion
-
-router.post("/login",validConnexion.validConnexion, async (req, res) => {
-   
-   
-   
+//-----------------------------------connexion---------------------------//
+router.post("/login", async (req, res) => { 
     try {
         //dans le body on va retrouver email et mdp
         //! récupérer l'utilisateur grace a son email
@@ -51,22 +42,24 @@ router.post("/login",validConnexion.validConnexion, async (req, res) => {
         //! vérifier le mdp
         const user = await User.findOne({name: req.body.name });
         if (!user) {
-            return res.status(400).json({ message: "cet utilisateur n'existe pas", statut: 400 })
+            return res.status(400).json({ message: "cet utilisateur n'existe pas",
+             statut: 400 })
         }
-
          const isMatch = await bcrypt.compare(req.body.password, user.password);
         //  console.log(isMatch);
         if (!isMatch) {
             return res.status(400).json({ message: "mot de passe incorrect", status: 400 })
         }
+        // on inscrit les infos qu'on a besoins dans dans une constante
         const payload = {
             _id: user._id,
             name: user.name,
             email: user.email,
             isAdmin: user.isAdmin
         }
+        // on enregistre les données et elle sont chiffrée en token
+        // pour pouvoir les réutiliser plus tard.
         const token = jwt.sign(payload,PRIVATE_KEY, { expiresIn: '2hours' });  
-        
         return res
             .status(200)
             .json({
@@ -87,7 +80,6 @@ router.post("/login",validConnexion.validConnexion, async (req, res) => {
             .json(error.message)
     }
 })
-
 router.get("/",auth,async (req, res) => {
     try {
         const userList = await User.find().sort("-createdAt");
@@ -144,9 +136,9 @@ router.delete("/delete/:id",auth, async (req, res) => {
             return res.status(400).json({ status: 400, message: "cet utilisateur n'existe pas" })
         }
         //Si on veut que seul l'auteur puisse supprimer son articl, c'est ici qu'il faut mettre  une condition de test
-        await Comment.deleteMany({ author: req.params.id }) // PERMET DE SUPPRIMER LE COMMENTAIRE LIÉ A L'ARTICLE
+        
         await AvisClients.deleteMany({ author: req.params.id }) // PERMET DE SUPPRIMER LE COMMENTAIRE LIÉ A L'ARTICLE
-        await user.remove();
+        await user.delete();
         return res
             .status(200).json({ status: 200, message: "utilisateur supprimé" })
     } catch (error) {

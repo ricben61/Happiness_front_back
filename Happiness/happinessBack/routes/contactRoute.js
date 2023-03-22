@@ -3,9 +3,6 @@ const router = express.Router();
 const nodemailer = require('nodemailer');
 const Contact = require('../models/Contact');
 
-
-
-
 require('dotenv').config();
 const EMAIL_USER = process.env.EMAIL_USER
 const EMAIL_PASS = process.env.EMAIL_PASS
@@ -25,7 +22,6 @@ let transporter = nodemailer.createTransport({
 
 router.post("/register", async (req,res) =>{
     const { nom, prenom, email, question, message } = req.body;
-
     let newcontact = new Contact({
         nom: req.body.nom,
         prenom: req.body.prenom,
@@ -33,8 +29,6 @@ router.post("/register", async (req,res) =>{
         question:req.body.question,
         message: req.body.message,
     })
-    console.log(newcontact);
-
     newcontact.save().then()
     const mailOptions = {
         from: EMAIL_USER,
@@ -47,22 +41,16 @@ router.post("/register", async (req,res) =>{
         Question:${question}<br>
         Message: ${message}<br>`,
     };
-
     transporter.sendMail(mailOptions, (error, responose) => {
-
         if (error){
             console.log(error);
             res.status(500)
             .json({ message: error.message, status: 500 })
         }else {
-            console.log("Email envoyer");
             res.status(201)
             .json({ message: " l'email à bien été envoyer " })
         }
- 
-
     })
-
 } )
 
 router.get("/", async (req, res) => {
@@ -82,7 +70,7 @@ router.delete("/delete/:id", async (req, res) => {
         if (!contact) {
             return res.status(400).json({ status: 400, message: "ce message n'existe pas" })
         }
-        //Si on veut que seul l'auteur puisse supprimer son articl, c'est ici qu'il faut mettre  une condition de test
+        //Si on veut que seul l'auteur puisse supprimer son article, c'est ici qu'il faut mettre  une condition de test
         await contact.remove();
         return res
             .status(200).json({ status: 200, message: "message supprimé" })

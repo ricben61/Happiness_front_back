@@ -1,6 +1,5 @@
 <main class="mainConnexion">
 
-
     <form class="formConnexion" *ngIf="!isLoggedIn" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm"
         novalidate>
         <h1 class="h1Connexion">Connexion</h1>
@@ -23,8 +22,7 @@
                     <div *ngIf="password.errors['required']">mot de passe obligatoire</div>
                     <div *ngIf="password.errors['minlength']">
                         le mot de passe dois contenir 6 carateres au minimum
-                    </div>
-                   
+                    </div> 
                 </div>
             </div>
             <div class="alert alert-danger" role="alert" *ngIf="f.submitted && isLoginFailed">

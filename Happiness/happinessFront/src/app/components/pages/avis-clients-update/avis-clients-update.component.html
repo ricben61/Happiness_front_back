@@ -4,26 +4,23 @@
   <section class="secModavisClients"    >
     <div class="ModCommentaires"   >
       <h3 class="h3AvisClients">Modifier votre avis clients.</h3>
-      <form *ngIf="admin  else elseBlock" class="formAvisClients" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+      <form *ngIf="admin || author else elseBlock" class="formAvisClients" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
         <p>avis laissé par {{this.avisclients.result.userName}} le {{avisclients.result.createdAt | date: 'dd/MM/yyyy à HH:mm'}} </p>
         <textarea name="description" class="descrptionCommentaire" [(ngModel)]="form.description"
           required content #description="ngModel"  >{{this.avisclients.result.description}}</textarea>
-
           <div class="alert-danger" *ngIf="description.errors && f.submitted">
             <div *ngIf="description.errors['required']">la description de l'avis clients et obligatoire</div>
             <div *ngIf="description.errors['content']">
-              content must be a valid content address
+              le contenue dois etre correct
             </div>
           </div>
-       
           <button type="submit" class="btnPosterAvisClients">Modifier votre avis</button>
-      
         <div class="alert alert-warning" *ngIf="f.submitted && !isPublished">
           Modification échoué!<br />{{ errorMessage }}
         </div>
       </form>
       <ng-template #elseBlock>
-        <div class="alert alert-danger">You are not the author of this post</div>
+        <div class="alert alert-danger">vous n'étes pas l'auteur de cet avis client</div>
       </ng-template>
       <div class="alert alert-success" *ngIf="isPublished">
         votre modification est validée !

@@ -10,7 +10,6 @@ import { TokenStorageService } from 'src/app/_services/token-storage.service';
   styleUrls: ['./connexion.component.min.css']
 })
 export class ConnexionComponent implements OnInit {
-
   form: any = {
     name: null,
     password: null,
@@ -29,11 +28,6 @@ export class ConnexionComponent implements OnInit {
   myFunction() {
     this.hide = !this.hide;
   }
-
-
-
-
-
   ngOnInit(): void {
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
@@ -41,27 +35,24 @@ export class ConnexionComponent implements OnInit {
       this.user = this.tokenStorage.getUser()
     }
   }
-
   onSubmit(): void {
     const { name, password } = this.form;
-    this.authService.connexion(name, password).subscribe(
-      data => {
+    this.authService.connexion(name, password).subscribe({
+      next : data => {
         // console.log(data);
         this.tokenStorage.saveToken(data.message.token)
         this.tokenStorage.saveUser(data.message.user)
-       
         this.isLoginFailed = false
         this.isLoggedIn = true
         this.admin = this.tokenStorage.getUser().admin;
         this.user = this.tokenStorage.getUser()
         window.location.href = 'accueil';
-
       },
-      err => {
+      error : err => {
         this.errorMessage = err.errorMessage;
         this.isLoginFailed = true;
       }
-    )
+    })
   }
   logOut(): void {
     this.tokenStorage.signOut();

@@ -1,37 +1,33 @@
 <main class="mainAvisClients">
-  <!-- <button id="top-btn" *ngIf="showBtn$ | async"class="material-icons" (click)="gotoTop()"> arrow_upward </button> -->
   <h2 class="H2avisClient">tous les avis clients</h2>
 
   <section class="gridCom" *ngIf="admin || !admin ">
 
-
     <section class="globCom" *ngFor="let avisclient of avisclients | paginate : {itemsPerPage: tableSize, currentPage: page, totalItems: count};let i = index ">
       <p>Avis laissé par "{{avisclient.userName}}",{{avisclient.createdAt | timeAgo}},  </p>
-      <p>{{avisclient.author}}</p>
 
       <article class="descriptionCom"><textarea name="description" cols="60"
           rows="2">{{avisclient.description}}</textarea>
       </article>
 
-      <div *ngIf="admin ||  avisclient.author === currentUser "  class="bouttonCommentaire">
-        <div class="BtnModCom">
+      <section *ngIf="admin || avisclient.author === currentUser "  class="bouttonCommentaire">
+        <article class="BtnModCom">
           <button type="submit" class="btnModifComAvisClients"><a
               routerLink="../avis-clients-update/{{avisclient._id}}">Modifier</a></button>
+        </article>
 
-        </div>
-        <div class="BtnSuppCom">
+        <article class="BtnSuppCom">
           <button onclick='return confirm("Êtes-vous sûr de vouloir supprimer?")'
             (click)="deleteAvisClients(avisclient._id)" type="submit" class="btnSuppComAvisClients"><i
               class="fa-solid fa-trash"></i> Supprimer</button>
 
-        </div>
-      </div>
+        </article>
+      </section>
 
     </section>
     <pagination-controls class="ngx" previousLabel="Précedent" nextLabel="Suivant"
       (pageChange)="onTableDataChange($event)"></pagination-controls>
   </section>
-
 
 
   <section class="globPosterCom">

@@ -4,7 +4,6 @@ const User = require('../models/User');
 const mongoose = require("mongoose");
 require("dotenv").config();
 
-
 const MONGO_URI = process.env.MONGO_URI;
 mongoose
     .set('strictQuery', false)
@@ -23,7 +22,6 @@ describe('avisclients crud', () => {
             password: "",
             isAdmin: "",
         })
-
         const test = new AvisClients({
             author: user,
             userName: 'testName',
@@ -39,7 +37,6 @@ describe('avisclients crud', () => {
          const avisclients = AvisClients.findOneAndUpdate({ userName: 'testName' }).lean()
          avisclients.then(() => {
              assert(avisclients.name === 'testAvis')
-             
          })
      })
     //  on efface maintenant l'avis client pour qu'il ny est plus rien dans la bdd

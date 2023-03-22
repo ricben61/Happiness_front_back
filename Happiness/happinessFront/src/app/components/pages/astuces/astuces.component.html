@@ -39,11 +39,11 @@
     </p>
 
 
-    <article id="divAccordion">
+    <section id="divAccordion">
 
       <button class="accordion" (click)="section['un'] = !section['un']">1 - Ne parlez pas mal, ni des autres, ni de
         vous-même :</button>
-      <div class="detail" [hidden]="!section['un']">
+      <article class="detail" [hidden]="!section['un']">
         <p> "Que votre parole soit impeccable" dit le 1er accord Toltèque.
           Ce que vous dites à propos des autres ne dit rien sur eux mais dit tout sur vous ! Commérer, critiquer, juger…
           autant de comportements qui envoient des ondes négatives dont vous êtes la première victime. Une personne qui
@@ -51,7 +51,7 @@
           auto-saboter. Nous sommes toujours notre critique la plus dure et nous pouvons nous juger trop rapidement pour
           nos
           actions. Prêtez attention à votre dialogue interne et cultivez la bienveillance !</p>
-      </div>
+      </article>
 
       <button class="accordion" (click)="section['deux'] = !section['deux']">2 - Apprenez le pardon :</button>
       <div class="detail" [hidden]="!section['deux']">
@@ -105,7 +105,7 @@
       </div>
 
       <button class="accordion" (click)="section['six'] = !section['six']">6 - Accordez-vous du temps :</button>
-      <div class="detail" *ngIf="section['six']">
+      <article class="detail" *ngIf="section['six']">
         <p> Nous avons la capacité de mettre des tonnes d’énergies dans des situations dénuées de sens, alors nous
           devrions
           trouver des plages horaires pour prendre soin de nous ! Chaque jour, prenez l'habitude de prendre un instant
@@ -116,11 +116,11 @@
           vous-même et de vous brancher sur le bourdonnement de votre âme. Imaginez les bénéfices si vous parvenez à le
           faire quotidiennement !
         </p>
-      </div>
+      </article>
 
       <button class="accordion" (click)="section['sept'] = !section['sept']">7 - Soyez reconnaissant envers
         vous-même :</button>
-      <div class="detail" *ngIf="section['sept']">
+      <article class="detail" *ngIf="section['sept']">
         <p> Commencez par vous dire “ merci “ pour tout votre travail, votre corps, votre vie, votre journée et tout le
           reste. Dites vous simplement merci d’être en train de lire cet article qui est là pour vous donner de l’amour.
           Apprenez à être reconnaissant pour tout ce que vous avez et remerciez pour la vie que vous avez créée jusqu’à
@@ -129,7 +129,7 @@
           que vous pourrez trouver les remerciements dans ce que vous avez, les portes de l’abondance s’ouvriront à vous
           !
         </p>
-      </div>
-    </article>
+      </article>
+    </section>
   </section>
 </main>

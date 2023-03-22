@@ -30,20 +30,20 @@ export class ContactComponent implements OnInit {
 
   onSubmit(): void {
     const { nom, prenom, email, question, message } = this.form
-    this.ContactService.postContact(nom, prenom, email, question, message).subscribe(
-      data => {
+    this.ContactService.postContact(nom, prenom, email, question, message).subscribe({
+      next : (data) => {
         location.reload();
         this.isPublished = true;
         
 
       },
-      err => {
+      error : (err) => {
         console.error(err);
 
         this.errorMessage = err.error.message;
         this.isPublished = false;
       }
-    )
+    })
   }
 
 

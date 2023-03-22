@@ -10,7 +10,7 @@ h2 {
   font-size: 4vw; /*en vw car je trouve que le responsive est mieux gerer*/
 }
 p {
-  font-size: 2vw;
+  font-size: 1rem;
 }
 .coaching {
   width: 80%;/* pour etre toujours centrer*/
